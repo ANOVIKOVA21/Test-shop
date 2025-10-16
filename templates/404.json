@@ -121,7 +121,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "Back to Home",
-            "link": "shopify://collections/frontpage",
+            "link": "https://test-store438.myshopify.com/",
             "open_in_new_tab": false,
             "style_class": "button-secondary",
             "width": "fit-content",
@@ -142,13 +142,13 @@
       "settings": {
         "content_direction": "column",
         "section_width": "page-width",
-        "section_height": "full-screen",
+        "section_height": "",
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 20,
         "color_scheme": "scheme-2",
         "background_image": "shopify://shop_images/fog-and-mist-roll-over-tall-evergreen-forest.jpg",
-        "padding-block-start": 100,
+        "padding-block-start": 80,
         "padding-block-end": 60
       }
     }

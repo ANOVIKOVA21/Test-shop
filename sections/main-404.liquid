@@ -1,10 +1,38 @@
 {% style %}
+  :root{
+  --font-size--paragraph: clamp(0.75rem, 1.5vw, 0.875rem);
+  --font-size--h3: clamp(1.4rem, 3.5vw, 2.0rem);
+  --font-size--h4: clamp(1.25rem, 2.5vw, 1.5rem);
+  --font-size--h5: clamp(0.75rem, 1.5vw, 0.875rem);
+  --font-size--h6: clamp(0.625rem, 1.2vw, 0.75rem);
+  }
   header{
     display:none;
+  }
+  main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   h1{
     opacity:0.5;
   }
+  h3 {
+  font-size: var(--font-size--h3);
+  }
+  h4 {
+    font-size: var(--font-size--h4);
+  }
+  h5 {
+    font-size: var(--font-size--h5);
+  }
+  h6 {
+    font-size: var(--font-size--h6);
+  }
+  .text-block p{
+    font-size: var(--font-size--paragraph);
+  }
+
   {% if section.settings.background_image %}
     .background-404{
       background-image:url({{ section.settings.background_image | image_url }});
