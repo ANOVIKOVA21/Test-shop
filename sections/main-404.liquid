@@ -1,5 +1,19 @@
-
-
+{% style %}
+  header{
+    display:none;
+  }
+  h1{
+    opacity:0.5;
+  }
+  {% if section.settings.background_image %}
+    .background-404{
+      background-image:url({{ section.settings.background_image | image_url }});
+      background-size: cover;
+      background-position: center;
+      background-color:#726e6e;
+    }
+  {% endif %}
+{% endstyle %}
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
   class="
@@ -158,6 +172,11 @@
       "id": "color_scheme",
       "label": "t:settings.color_scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Set background"
     },
     {
       "type": "header",
