@@ -30,17 +30,30 @@
   {{ block.shopify_attributes }}
 >
   {{ block_settings.label }}
+  {%- if block_settings.style_class == 'link' -%}
+    <span class="svg-wrapper icon-arrow-diagonal">
+      {{- 'icon-arrow-diagonal.svg' | inline_asset_content -}}
+    </span>
+  {% endif %}
 </a>
 
 {% stylesheet %}
   .link {
-    text-decoration: underline;
-    text-decoration-color: currentcolor;
     text-transform: uppercase;
-
+    text-decoration-color: currentcolor;
+    text-decoration: none;
+    .icon-arrow-diagonal,
+    .icon-arrow-diagonal svg {
+      width: 0.75rem;
+      height: 0.75rem;
+      transition: 0.3s ease;
+    }
     &:hover {
-      color: var(--color-primary-hover);
+      color: #a0a0a0;
       text-decoration-color: transparent;
+      .icon-arrow-diagonal {
+        transform: translate(4px, -4px);
+      }
     }
   }
 {% endstylesheet %}
