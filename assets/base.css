@@ -3471,7 +3471,7 @@ slideshow-controls:not([controls-on-media]) {
 slideshow-controls[controls-on-media] {
   z-index: var(--layer-raised);
 
-  &:has(.slideshow-controls__dots, .slideshow-controls__counter) {
+  &:has(.slideshow-controls__dots, .slideshow-controls__counter, .slideshow-controls__rectangles) {
     --color-foreground: #fff;
     --color-foreground-rgb: var(--color-white-rgb);
   }
@@ -3517,7 +3517,8 @@ slideshow-controls:is([pagination-position='right'], [pagination-position='left'
 }
 
 .slideshow-controls__dots,
-.slideshow-controls__counter {
+.slideshow-controls__counter,
+.slideshow-controls__rectangles {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -3536,7 +3537,8 @@ slideshow-component[autoplay] slideshow-controls {
   mix-blend-mode: difference;
 }
 
-.slideshow-controls__dots {
+.slideshow-controls__dots,
+.slideshow-controls__rectangles {
   gap: 0.6rem;
   padding: var(--padding-sm) var(--padding-lg);
   border-radius: 3rem;
@@ -3581,8 +3583,20 @@ slideshow-component[autoplay] slideshow-controls {
   }
 }
 
+.slideshow-controls__rectangles {
+  gap: 1.2rem;
+
+  button {
+    &::after {
+      height: 0.1rem;
+      width: 4rem;
+    }
+  }
+}
+
 .slideshow-controls__dots,
-.slideshow-controls__counter {
+.slideshow-controls__counter,
+.slideshow-controls__rectangles {
   &:only-child {
     margin-inline: auto;
   }

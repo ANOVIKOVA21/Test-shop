@@ -1,5 +1,13 @@
-
-
+{% style %}
+  {% if section.settings.slideshow_controls_position == 'right' %}
+    .slideshow-controls__dots, .slideshow-controls__counter, .slideshow-controls__rectangles {
+      &:only-child {
+          margin-inline-start: auto;
+          margin-inline-end: 0;
+      }
+    }
+  {% endif %}
+{% endstyle %}
 {% if section.blocks.size > 1 %}
   {% capture controls %}
     {%- render 'slideshow-controls',
@@ -100,11 +108,31 @@
           "label": "t:options.dots"
         },
         {
+          "value": "rectangles",
+          "label": "Rectangles"
+        },
+        {
           "value": "counter",
           "label": "t:options.counter"
         }
       ],
       "default": "dots"
+    },
+    {
+      "type": "select",
+      "id": "slideshow_controls_position",
+      "label": "Controls Position",
+      "options": [
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
     },
     {
       "type": "color_scheme",
