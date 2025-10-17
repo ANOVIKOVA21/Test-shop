@@ -9,6 +9,8 @@
  */
 {
   "current": {
+    "logo": "shopify://shop_images/og-logo_2.svg",
+    "logo_inverse": "shopify://shop_images/og-logo_1.svg",
     "logo_height": 36,
     "logo_height_mobile": 28,
     "type_body_font": "inter_n4",
@@ -42,9 +44,9 @@
     "type_size_h6": "12",
     "type_line_height_h6": "display-loose",
     "page_width": "narrow",
-    "page_transition_enabled": false,
+    "page_transition_enabled": true,
     "transition_to_main_product": false,
-    "card_hover_effect": "none",
+    "card_hover_effect": "lift",
     "badge_position": "top-right",
     "badge_corner_radius": 100,
     "badge_sale_color_scheme": "scheme-1",
@@ -81,9 +83,9 @@
       "scheme-1": {
         "settings": {
           "background": "#ffffff",
-          "foreground_heading": "#000000",
-          "foreground": "#000000cf",
-          "primary": "#000000cf",
+          "foreground_heading": "#121212",
+          "foreground": "#121212",
+          "primary": "#121212",
           "primary_hover": "#000000",
           "border": "#0000000f",
           "shadow": "#000000",
@@ -100,8 +102,8 @@
           "secondary_button_hover_text": "#333333",
           "secondary_button_hover_border": "#333333",
           "input_background": "#ffffffc7",
-          "input_text_color": "#333333",
-          "input_border_color": "#dfdfdf",
+          "input_text_color": "#a0a0a0",
+          "input_border_color": "#121212",
           "input_hover_background": "#00000003",
           "variant_background_color": "#ffffff",
           "variant_text_color": "#000000",
@@ -119,7 +121,7 @@
       },
       "scheme-2": {
         "settings": {
-          "background": "#00000000",
+          "background": "rgba(0,0,0,0)",
           "foreground_heading": "#ffffff",
           "foreground": "#ffffff",
           "primary": "#000000cf",
@@ -158,9 +160,9 @@
       },
       "scheme-3": {
         "settings": {
-          "background": "#eef1ea",
+          "background": "#121212",
           "foreground_heading": "#000000",
-          "foreground": "#000000cf",
+          "foreground": "#ffffff",
           "primary": "#000000cf",
           "primary_hover": "#000000",
           "border": "#000000cf",
