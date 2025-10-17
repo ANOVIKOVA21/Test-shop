@@ -45,7 +45,8 @@
         ref="menuitem"
       >
         <span class="menu-list__link-title">{{- link.title -}}</span>
-      </a>
+        <span class="svg-wrapper icon-caret icon-animated">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
+      </a>       
       {%- if link.links != blank -%}
         <div class="menu-list__submenu{{ color_scheme_classes }}" ref="submenu[]">
           <div

@@ -192,14 +192,11 @@
 
   header-actions {
     display: flex;
+    align-items: center;
 
     @media screen and (max-width: 749px) {
       justify-self: flex-end;
     }
-  }
-
-  .header__column--right header-actions {
-    margin-inline-start: calc(var(--gap-md) * -1);
   }
 
   .header-actions__action {
@@ -226,6 +223,7 @@
     --cart-bubble-right: 2.5px;
 
     position: relative;
+    text-transform: uppercase;
   }
 
   .header-actions__cart-icon .cart-bubble {

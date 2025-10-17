@@ -1,4 +1,3 @@
-
 {%- doc -%}
   Renders a header menu block.
 
@@ -186,10 +185,16 @@
     display: flex;
     min-height: var(--minimum-touch-target);
     align-items: center;
-
+    .icon-caret {
+      margin-left: 0.3rem;
+      width: 0.8rem;
+    }
     &:hover,
     &:focus {
       color: var(--menu-top-level-font-color);
+      .icon-caret {
+        transform: rotate(180deg);
+      }
     }
 
     @media screen and (min-width: 750px) {
