@@ -1522,6 +1522,11 @@ details[open] > summary .icon-plus .vertical,
   opacity: 0;
 }
 
+details[open]>summary .icon-caret,
+.details-open>summary .icon-caret {
+  transform: scaleY(-1);
+}
+
 /* Product Media */
 media-gallery {
   display: block;

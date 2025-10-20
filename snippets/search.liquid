@@ -3,6 +3,7 @@
 
   @param {string} [style] - The style of the search action.
   @param {string} [class] - Additional classes for the search action.
+  @param {string} [btn_style] - The style of the search button
 
   @example
   {% render 'search', style: 'default', class: 'custom-class' %}
@@ -14,7 +15,13 @@
       class="button button-unstyled search-modal__button search__button header-actions__action"
       aria-label="{{ 'accessibility.open_search_modal' | t }}"
     >
-      Search
+      {% if btn_style == 'word' %}
+        Search
+      {% else %}
+        <span class="svg-wrapper predictive-search__icon">
+          {{ 'icon-search.svg' | inline_asset_content }}
+        </span>
+      {% endif %}
     </button>
   </search-button>
 {% endunless %}
