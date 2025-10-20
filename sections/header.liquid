@@ -287,6 +287,19 @@
     --header-group-height: 0px;
   }
 
+  header {
+    mix-blend-mode: exclusion;
+  }
+
+  header:has(.header-menu[aria-expanded='true'], .open-search) {
+    mix-blend-mode: normal;
+  }
+
+  .header__row:has(.header-menu[aria-expanded='true']),
+  header:has(.open-search) .header__row {
+    background-color: white;
+  }
+
   .header[transparent] {
     --language-button-background-color: transparent;
     --language-button-border-color: transparent;
@@ -384,7 +397,7 @@
     position: sticky;
 
     /* Use -1 instead of 0 so intersection observer can track sticky state */
-    top: -1px;
+    top: 0;
     z-index: var(--layer-sticky);
   }
 
@@ -404,9 +417,7 @@
 
   .header__row {
     position: relative;
-
-    /* will default to bg from its color scheme unless --header-bg-color is transparent */
-    background-color: var(--header-bg-color, var(--color-background));
+    background-color: transparent;
   }
 
   .header__row--top:not(.divider--page-width),
