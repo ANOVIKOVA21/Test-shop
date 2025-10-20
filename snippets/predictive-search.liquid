@@ -64,8 +64,8 @@
           type="hidden"
           value="last"
         >
-        <span class="svg-wrapper predictive-search__icon">
-          {{ 'icon-search.svg' | inline_asset_content }}
+        <span class="svg-wrapper predictive-search__arrow-icon">
+          {{ 'icon-arrow.svg' | inline_asset_content }}
         </span>
         <button
           type="button"
@@ -81,17 +81,6 @@
           <span class="predictive-search__reset-button-text">{{ 'actions.clear' | t }}</span>
         </button>
       </div>
-      <button
-        type="button"
-        class="button predictive-search__close-modal-button"
-        aria-label="{{ 'accessibility.close_dialog' | t }}"
-        on:click="dialog-component/closeDialog"
-        ref="closeModalButton"
-      >
-        <span class="svg-wrapper">
-          {{ 'icon-close.svg' | inline_asset_content }}
-        </span>
-      </button>
     </div>
 
     <div class="predictive-search-form__content-wrapper">
@@ -127,12 +116,20 @@
     display: flex;
     width: 100%;
     position: relative;
+    padding-bottom: 16px;
     margin-inline: auto;
     align-items: center;
     background-color: var(--color-background);
     z-index: var(--layer-heightened);
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
   }
-
+  .open-search {
+    visibility: visible;
+    max-height: 500px;
+  }
   .predictive-search-form__footer {
     display: none;
     position: absolute;
@@ -237,7 +234,8 @@
     position: sticky;
     top: 0;
     z-index: var(--layer-heightened);
-    width: 100%;
+    width: 50%;
+    margin: 0 auto;
     align-items: center;
     background-color: var(--color-input-background);
     border: var(--search-border-width) solid var(--color-border);
@@ -245,6 +243,7 @@
 
     @media screen and (max-width: 749px) {
       padding: var(--padding-2xs) var(--padding-sm);
+      width: 80%;
     }
   }
 
@@ -272,19 +271,22 @@
   .search-input {
     border-radius: var(--style-border-radius-inputs);
     padding-block: var(--padding-sm);
-    font-size: var(--font-size--md);
+    font-size: clamp(1rem, 1.2vw + 1rem, 2.125rem);
+    font-weight: 500;
     width: 100%;
     color: var(--color-foreground);
-    padding-inline: calc(var(--margin-lg) + var(--icon-size-lg)) 0;
+    padding-inline: 0 calc(var(--margin-lg) + var(--icon-size-lg));
     background: transparent;
     text-overflow: ellipsis;
     overflow: hidden;
     outline: none;
     border: 0;
+    border-bottom: 1px solid #121212;
+    border-radius: 0;
   }
 
   .search-input::placeholder {
-    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+    color: #d0d0d0;
   }
 
   .search-input,
@@ -298,22 +300,24 @@
     background-color: transparent;
   }
 
-  .predictive-search__icon {
+  .predictive-search__arrow-icon {
     position: absolute;
-    left: var(--margin-xl);
+    right: 40px;
     top: auto;
-    width: var(--icon-size-lg);
-    height: var(--icon-size-lg);
-    color: rgb(var(--color-foreground-rgb) / var(--opacity-60));
+    width: clamp(2rem, 1.5vw + 1rem, 2.5rem);
+    height: clamp(2rem, 1.5vw + 1rem, 2.5rem);
+    color: rgb(var(--color-foreground-rgb));
+    cursor: pointer;
+    pointer-events: auto;
 
-    @media screen and (min-width: 750px) {
-      left: var(--margin-md);
-    }
+    /* @media screen and (min-width: 750px) {
+      right: var(--margin-md);
+    } */
   }
 
-  .predictive-search__icon > svg {
-    width: var(--icon-size-md);
-    height: var(--icon-size-md);
+  .predictive-search__arrow-icon > svg {
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   .predictive-search__reset-button {
@@ -340,7 +344,7 @@
     }
 
     @media screen and (max-width: 749px) {
-      margin-right: var(--margin-md);
+      margin-right: 0;
     }
   }
 
@@ -397,39 +401,5 @@
       transition: transform 100ms var(--animation-timing-active);
       box-shadow: none;
     }
-  }
-
-  .predictive-search__close-modal-button {
-    --button-color: var(--color-foreground);
-    --button-background-color: transparent;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: var(--minimum-touch-target);
-    height: var(--minimum-touch-target);
-    margin-inline-start: var(--margin-sm);
-    padding: 0;
-    box-shadow: none;
-
-    &:active {
-      transform: scale(0.8);
-      transition: transform 100ms var(--animation-timing-active);
-    }
-
-    .svg-wrapper,
-    svg {
-      width: var(--icon-size-xs);
-      height: var(--icon-size-xs);
-    }
-
-    @media screen and (min-width: 750px) {
-      display: none;
-    }
-  }
-
-  .predictive-search__close-modal-button:hover {
-    --button-color: var(--color-foreground);
-    --button-background-color: transparent;
   }
 {% endstylesheet %}

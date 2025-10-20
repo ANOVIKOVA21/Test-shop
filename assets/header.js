@@ -216,7 +216,9 @@ onDocumentLoaded(() => {
 
   // Update header group height on resize of any child
   if (headerGroup) {
-    const resizeObserver = new ResizeObserver(() => calculateHeaderGroupHeight(header, headerGroup));
+    const resizeObserver = new ResizeObserver(() =>
+      calculateHeaderGroupHeight(header, headerGroup)
+    );
 
     // Observe all children of the header group
     const children = headerGroup.children;
@@ -243,4 +245,24 @@ onDocumentLoaded(() => {
 
     mutationObserver.observe(headerGroup, { childList: true });
   }
+
+  const searchBtns = header?.querySelectorAll('.search__button');
+  searchBtns?.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const predictiveSearch = header?.querySelector('predictive-search-component');
+      if (!predictiveSearch) return;
+      predictiveSearch.classList.toggle('open-search');
+      if (predictiveSearch.classList.contains('open-search')) {
+        header.dataset.stickyState = 'active';
+      } else {
+        header.dataset.stickyState = 'inactive';
+      }
+    });
+  });
+
+  const searchIcon = header?.querySelector('.predictive-search__arrow-icon');
+  searchIcon?.addEventListener('click', () => {
+    const form = header?.querySelector('.predictive-search-form');
+    form?.submit();
+  });
 });
