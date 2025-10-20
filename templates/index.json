@@ -116,15 +116,10 @@
                   "blocks": {}
                 }
               },
-              "block_order": [
-                "text_ULEV9x",
-                "button_bXiaq4"
-              ]
+              "block_order": ["text_ULEV9x", "button_bXiaq4"]
             }
           },
-          "block_order": [
-            "group_qniDcW"
-          ]
+          "block_order": ["group_qniDcW"]
         },
         "slide_KqjpnW": {
           "type": "_slide",
@@ -230,21 +225,13 @@
                   "blocks": {}
                 }
               },
-              "block_order": [
-                "text_Pwntyk",
-                "button_xJmnLM"
-              ]
+              "block_order": ["text_Pwntyk", "button_xJmnLM"]
             }
           },
-          "block_order": [
-            "group_qjaFnp"
-          ]
+          "block_order": ["group_qjaFnp"]
         }
       },
-      "block_order": [
-        "slide_N9CMzB",
-        "slide_KqjpnW"
-      ],
+      "block_order": ["slide_N9CMzB", "slide_KqjpnW"],
       "name": "t:names.slideshow",
       "settings": {
         "icons_style": "none",
@@ -338,10 +325,7 @@
               "blocks": {}
             }
           },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "button_UFrncq"
-          ]
+          "block_order": ["product_list_text_YFtzcL", "button_UFrncq"]
         },
         "static-product-card": {
           "type": "_product-card",
@@ -406,7 +390,7 @@
               "type": "price",
               "name": "t:names.product_price",
               "settings": {
-                "show_sale_price_first": true,
+                "show_sale_price_first": false,
                 "show_installments": false,
                 "show_tax_info": false,
                 "type_preset": "h6",
@@ -539,10 +523,7 @@
               "blocks": {}
             }
           },
-          "block_order": [
-            "text_PP7bjP",
-            "button_a6bGDk"
-          ]
+          "block_order": ["text_PP7bjP", "button_a6bGDk"]
         },
         "static-collection-card": {
           "type": "_collection-card",
@@ -604,21 +585,13 @@
               "blocks": {}
             }
           },
-          "block_order": [
-            "collection_title_JjBcR4"
-          ]
+          "block_order": ["collection_title_JjBcR4"]
         }
       },
-      "block_order": [
-        "group_Xq98mL"
-      ],
+      "block_order": ["group_Xq98mL"],
       "name": "t:names.collections_grid",
       "settings": {
-        "collection_list": [
-          "timeless-classics",
-          "t-shirts",
-          "hoodies"
-        ],
+        "collection_list": ["timeless-classics", "t-shirts", "hoodies"],
         "layout_type": "grid",
         "carousel_on_mobile": false,
         "columns": 3,
@@ -754,9 +727,7 @@
                   "blocks": {}
                 }
               },
-              "block_order": [
-                "text_AAFb4r"
-              ]
+              "block_order": ["text_AAFb4r"]
             },
             "button_b4jG8q": {
               "type": "button",
@@ -773,11 +744,7 @@
               "blocks": {}
             }
           },
-          "block_order": [
-            "text_A6rwYT",
-            "group_P3YUFz",
-            "button_b4jG8q"
-          ]
+          "block_order": ["text_A6rwYT", "group_P3YUFz", "button_b4jG8q"]
         }
       },
       "name": "t:names.editorial",
@@ -825,7 +792,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Optimus Gang is a Ukrainian creative collective and internet phenomenon, blending music, memes, humor, and irony in fashion into a unique cultural force. <br/> Our designs break the rules, mixing streetwear aesthetics with bold statements, inside jokes, and internet culture references that only the real ones will get. <br/>Every drop is unpredictable—limited-edition pieces, unexpected collaborations, and designs that challenge the norm. We create fashion that speaks louder than words, pushing the boundaries of style, humor, and self-expression.<br/>Stay tuned for new drops, projects, and surprises.   Follow our movement—expect the unexpected.</p>",
+            "text": "<p>Optimus Gang is a Ukrainian creative collective and internet phenomenon, blending music, memes, humor, and irony in fashion into a unique cultural force. <br/>Our designs break the rules, mixing streetwear aesthetics with bold statements, inside jokes, and internet culture references that only the real ones will get.<br/>Every drop is unpredictable—limited-edition pieces, unexpected collaborations, and designs that challenge the norm. We create fashion that speaks louder than words, pushing the boundaries of style, humor, and self-expression.<br/>Stay tuned for new drops, projects, and surprises. Follow our movement—expect the unexpected.</p>",
             "width": "100%",
             "max_width": "none",
             "alignment": "left",
@@ -848,10 +815,7 @@
           "blocks": {}
         }
       },
-      "block_order": [
-        "text_MKNrkY",
-        "text_j39gMe"
-      ],
+      "block_order": ["text_MKNrkY", "text_j39gMe"],
       "name": "t:names.rich_text_section",
       "settings": {
         "content_direction": "column",
@@ -966,10 +930,7 @@
               "blocks": {}
             }
           },
-          "block_order": [
-            "text_HUgKp7",
-            "button_qWH3Ck"
-          ]
+          "block_order": ["text_HUgKp7", "button_qWH3Ck"]
         },
         "group_8EBAaz": {
           "type": "group",
@@ -1101,10 +1062,7 @@
                   "blocks": {}
                 }
               },
-              "block_order": [
-                "image_MRFNeM",
-                "text_gQriWW"
-              ]
+              "block_order": ["image_MRFNeM", "text_gQriWW"]
             },
             "group_yD968V": {
               "type": "group",
@@ -1196,10 +1154,7 @@
                   "blocks": {}
                 }
               },
-              "block_order": [
-                "image_xQHywA",
-                "text_Na7Cct"
-              ]
+              "block_order": ["image_xQHywA", "text_Na7Cct"]
             },
             "group_DcQWYa": {
               "type": "group",
@@ -1291,10 +1246,7 @@
                   "blocks": {}
                 }
               },
-              "block_order": [
-                "image_pY7D4G",
-                "text_bcddKk"
-              ]
+              "block_order": ["image_pY7D4G", "text_bcddKk"]
             },
             "group_WtVaxM": {
               "type": "group",
@@ -1386,10 +1338,7 @@
                   "blocks": {}
                 }
               },
-              "block_order": [
-                "image_KQYXUz",
-                "text_DRegPJ"
-              ]
+              "block_order": ["image_KQYXUz", "text_DRegPJ"]
             },
             "group_wq7Hri": {
               "type": "group",
@@ -1481,10 +1430,7 @@
                   "blocks": {}
                 }
               },
-              "block_order": [
-                "image_GciGCk",
-                "text_bbMnAn"
-              ]
+              "block_order": ["image_GciGCk", "text_bbMnAn"]
             },
             "group_yTP4xX": {
               "type": "group",
@@ -1576,10 +1522,7 @@
                   "blocks": {}
                 }
               },
-              "block_order": [
-                "image_4gYYYQ",
-                "text_DBR6hh"
-              ]
+              "block_order": ["image_4gYYYQ", "text_DBR6hh"]
             }
           },
           "block_order": [
@@ -1592,10 +1535,7 @@
           ]
         }
       },
-      "block_order": [
-        "group_cPkFRk",
-        "group_8EBAaz"
-      ],
+      "block_order": ["group_cPkFRk", "group_8EBAaz"],
       "name": "t:names.multicolumn",
       "settings": {
         "content_direction": "column",
