@@ -122,10 +122,10 @@
       },
       "scheme-2": {
         "settings": {
-          "background": "rgba(0,0,0,0)",
-          "foreground_heading": "#ffffff",
-          "foreground": "#ffffff",
-          "primary": "#000000cf",
+          "background": "#f8f8f8",
+          "foreground_heading": "#121212",
+          "foreground": "#121212",
+          "primary": "#121212",
           "primary_hover": "#ffffff",
           "border": "#dfdfdf",
           "shadow": "rgba(0,0,0,0)",
@@ -142,7 +142,7 @@
           "secondary_button_hover_text": "#000000",
           "secondary_button_hover_border": "#333333ba",
           "input_background": "rgba(0,0,0,0)",
-          "input_text_color": "#00000087",
+          "input_text_color": "#121212",
           "input_border_color": "#00000021",
           "input_hover_background": "#ffffff5c",
           "variant_background_color": "#ffffff",

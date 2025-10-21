@@ -1455,6 +1455,15 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   text-align: center;
 }
 
+.link.link--AeGQ3b1VGZFdNdWNHe__button_b4jG8q {
+  font-weight: 500;
+  text-decoration: underline;
+
+  .icon-arrow-diagonal {
+    display: none;
+  }
+}
+
 shopify-accelerated-checkout,
 shopify-accelerated-checkout-cart {
   --shopify-accelerated-checkout-button-border-radius: var(--style-border-radius-buttons-primary);

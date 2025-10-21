@@ -56,7 +56,7 @@
             "text_hQPzkT": {
               "type": "text",
               "settings": {
-                "text": "<h2>Newsletter</h2>",
+                "text": "<h2><strong>Newsletter</strong></h2>",
                 "width": "fit-content",
                 "max_width": "narrow",
                 "alignment": "left",
@@ -81,7 +81,7 @@
             "text_nyeiHa": {
               "type": "text",
               "settings": {
-                "text": "<p>Sign up to our newsletter to get 15% off your order, alongside early access to new drops.</p>",
+                "text": "<p><strong>Sign up to our newsletter to get 15% off your order, alongside early access to new drops.</strong></p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -143,7 +143,7 @@
       "settings": {
         "section_width": "page-width",
         "gap": 20,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "padding-block-start": 70,
         "padding-block-end": 70
       }
@@ -151,10 +151,39 @@
     "footer_utilities_jLGE8U": {
       "type": "footer-utilities",
       "blocks": {
+        "social_links_Jw3wk4": {
+          "type": "social-links",
+          "name": "t:names.social_media_links",
+          "settings": {
+            "facebook_url": "",
+            "instagram_url": "https://www.instagram.com/",
+            "youtube_url": "https://www.youtube.com/",
+            "tiktok_url": "",
+            "twitter_url": "",
+            "threads_url": "",
+            "linkedin_url": "",
+            "bluesky_url": "",
+            "snapchat_url": "",
+            "pinterest_url": "",
+            "tumblr_url": "",
+            "vimeo_url": "",
+            "custom_url": "https://web.telegram.org/a/"
+          },
+          "blocks": {}
+        },
+        "footer_policy_list_Ui9jYW": {
+          "type": "footer-policy-list",
+          "name": "t:names.policy_list",
+          "settings": {
+            "font_size": "0.75rem",
+            "case": "none"
+          },
+          "blocks": {}
+        },
         "footer_copyright_jweRK8": {
           "type": "footer-copyright",
           "settings": {
-            "show_powered_by": true,
+            "show_powered_by": false,
             "font_size": "0.75rem",
             "case": "none"
           },
@@ -162,12 +191,14 @@
         }
       },
       "block_order": [
+        "social_links_Jw3wk4",
+        "footer_policy_list_Ui9jYW",
         "footer_copyright_jweRK8"
       ],
       "name": "t:names.utilities",
       "settings": {
         "section_width": "page-width",
-        "gap": 24,
+        "gap": 10,
         "divider_thickness": 0,
         "color_scheme": "scheme-1",
         "padding-block-start": 20,
