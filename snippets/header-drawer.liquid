@@ -107,7 +107,22 @@
                 style="--menu-drawer-animation-index: {{ animation_index }};"
                 class="{%- if block_settings.drawer_accordion -%}menu-drawer__list-item--deep{%- else -%}menu-drawer__list-item--flat{%- endif -%}{% if block_settings.drawer_dividers %} menu-drawer__list-item--divider{% endif %}"
               >
-                {% if block_settings.drawer_accordion and link.links != blank %}
+                {% if forloop.first %}
+                  {% if link.links != blank %}
+                    <ul class="menu-drawer__menu menu-drawer__menu--childlist" role="list">
+                      {% for childlink in link.links %}
+                        <li class="menu-drawer__list-item">
+                          <a
+                            href="{{ childlink.url }}"
+                            class="menu-drawer__menu-item menu-drawer__menu-item--child focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
+                          >
+                            <span class="menu-drawer__menu-item-text wrap-text">{{ childlink.title | escape }}</span>
+                          </a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                {% elsif block_settings.drawer_accordion and link.links != blank %}
                   {%- comment -%}
                     Accordion for links with children, in menus with fewer than 3 levels of links
                   {%- endcomment -%}
@@ -567,7 +582,7 @@
         style="--menu-drawer-animation-index: {{ linklist.links.size }};"
       >
         {% liquid
-          assign show_language = section.settings.show_language
+          assign show_language = section.settings.show_language_mobile
           if localization.available_languages.size <= 1
             assign show_language = false
           endif
@@ -1017,9 +1032,10 @@
   .menu-drawer .language-selector:not(.menu-drawer__submenu *) {
     width: fit-content;
     padding-inline-start: 0;
-
+    margin-top: 30px;
     .localization-form__select {
       text-align: left;
+      text-transform: uppercase;
     }
   }
 
@@ -1072,8 +1088,9 @@
     display: flex;
     flex-direction: column;
     padding: 0;
-    margin-block: auto var(--padding-sm);
-    margin-inline-start: var(--padding-xl);
+    margin-left: 8px;
+    /* margin-block: auto var(--padding-sm);
+    margin-inline-start: var(--padding-xl); */
     background-color: rgb(var(--color-foreground) 0.03);
   }
 
