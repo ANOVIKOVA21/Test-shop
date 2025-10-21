@@ -1027,7 +1027,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-
+  .menu-drawer__menu
+    > li:first-child
+    > .menu-drawer__menu--childlist
+    > li:nth-child(-n + 2)
+    .menu-drawer__menu-item-text {
+    text-transform: uppercase;
+  }
   /** Styles when the country selector is hidden */
   .menu-drawer .language-selector:not(.menu-drawer__submenu *) {
     width: fit-content;
