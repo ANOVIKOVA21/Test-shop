@@ -240,7 +240,7 @@
     position: absolute;
     top: calc(100% - 1px + var(--border-bottom-width));
     left: 0;
-    width: 100%;
+    width: clamp(330px, 37vw, 593px);
     height: var(--submenu-height);
     background-color: var(--color-background);
     box-shadow: var(--shadow-popover);
@@ -276,7 +276,7 @@
     visibility: hidden;
     background-color: var(--color-background);
     position: absolute;
-    width: 100%;
+    width: clamp(330px, 37vw, 593px);
     left: 0;
     top: calc(100% - 1px + var(--border-bottom-width));
     z-index: var(--layer-header-menu);
@@ -480,14 +480,14 @@
   }
 
   .mega-menu__grid {
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(var(--menu-columns-tablet), minmax(0, 1fr));
-    gap: var(--menu-vertical-gap) var(--menu-horizontal-gap);
+    gap: var(--menu-vertical-gap) var(--menu-horizontal-gap); */
     width: 100%;
 
-    @media screen and (min-width: 990px) {
+    /* @media screen and (min-width: 990px) {
       grid-template-columns: repeat(var(--menu-columns-desktop), minmax(0, 1fr));
-    }
+    } */
   }
 
   .mega-menu__column {
