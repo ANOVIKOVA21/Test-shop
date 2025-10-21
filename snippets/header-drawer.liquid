@@ -585,62 +585,6 @@
           %}
         {%- endif -%}
       </div>
-
-      {% comment %}
-        {% liquid
-          if block_settings.menu_style == 'featured_collections'
-            assign top_level_featured_collections = linklist.links | where: 'type', 'collection_link'
-          endif
-
-          if eager_loading and block_settings.menu_style == 'featured_products'
-            for link in linklist.links
-              if link.type == 'collection_link'
-                assign collection_linklist = link
-                assign top_level_featured_products_collection = collection_linklist.object
-                break
-              elsif link.type == 'catalog_link' or link.type == 'collections_link'
-                assign top_level_featured_products_collection = collections.all
-                break
-              endif
-            endfor
-          endif
-        -%}
-        {% if top_level_featured_collections.size > 0 or top_level_featured_products_collection.products_count > 0 %}
-          <div
-            class="menu-drawer__featured-content"
-            style="--menu-drawer-animation-index: {{ linklist.links.size | plus: 1 }};"
-          >
-            <ul class="menu-drawer__featured-content-list menu-drawer__animated-element list-unstyled">
-              {% if top_level_featured_collections.size > 0 %}
-                {%- for collection in top_level_featured_collections limit: max_featured_items -%}
-                  <li class="menu-drawer__featured-content-list-item menu-drawer__featured-content-list-item--collection">
-                    {% render 'resource-card',
-                      resource: collection.object,
-                      resource_type: 'collection',
-                      style: 'overlay',
-                      image_aspect_ratio: ratio,
-                      image_sizes: 'auto, 400px'
-                    %}
-                  </li>
-                {%- endfor -%}
-              {% elsif top_level_featured_products_collection.products_count > 0 %}
-                {% paginate top_level_featured_products_collection.products by max_featured_items %}
-                  {%- for product in top_level_featured_products_collection.products limit: max_featured_items -%}
-                    <li class="menu-drawer__featured-content-list-item menu-drawer__featured-content-list-item--product">
-                      {% render 'resource-card',
-                        resource: product,
-                        resource_type: 'product',
-                        image_aspect_ratio: ratio,
-                        image_sizes: 'auto, 400px'
-                      %}
-                    </li>
-                  {%- endfor -%}
-                {% endpaginate %}
-              {% endif %}
-            </ul>
-          </div>
-        {% endif %}
-      {% endcomment %}
     </div>
     <div
       class="menu-drawer__backdrop"
@@ -723,8 +667,7 @@
     transform: translateX(-100%);
     visibility: hidden;
     height: var(--drawer-height);
-    width: var(--drawer-width);
-    max-width: var(--drawer-max-width);
+    width: 100vw;
     z-index: var(--layer-menu-drawer);
     left: 0;
     top: 0;
@@ -746,7 +689,7 @@
   }
 
   .menu-drawer:has(details[open]) {
-    overflow: initial;
+    overflow: auto;
   }
 
   .menu-drawer__backdrop {
@@ -762,6 +705,18 @@
 
     .menu-open & {
       opacity: 1;
+    }
+  }
+  @media screen and (max-width: 750px) {
+    header:has(.menu-open) .header-logo .header-logo__image-container--original {
+      display: block;
+      position: absolute;
+      z-index: 18;
+    }
+    header:has(.menu-open) .header-actions__action,
+    header:has(.menu-open) .cart-drawer {
+      color: #121212;
+      z-index: 18;
     }
   }
 
@@ -979,10 +934,13 @@
     padding: var(--padding-2xs) 0;
     position: relative;
     text-decoration: none;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
+    font-size: 1rem;
   }
-
+  summary .menu-drawer__menu-item-text {
+    text-transform: uppercase;
+  }
   .menu-drawer__menu-item:has(> .menu-drawer__link-image) {
     display: flex;
     flex-direction: column;
@@ -1030,6 +988,8 @@
     height: fit-content;
     padding: var(--padding-lg);
     will-change: transform;
+    min-height: 2.5rem;
+    overflow: visible;
   }
 
   .menu-drawer__back-button {
@@ -1077,10 +1037,17 @@
   }
 
   .menu-drawer svg {
-    width: var(--icon-size-xs);
-    height: var(--icon-size-xs);
+    width: var(--icon-size-sm);
+    height: var(--icon-size-sm);
   }
-
+  .menu-drawer__close-button {
+    margin: 16px 16px 16px 0;
+  }
+  .header-drawer-icon--close,
+  .header-drawer-icon--close svg {
+    width: 2.937rem;
+    height: 2.5rem;
+  }
   .menu-drawer__submenu {
     position: absolute;
     width: 100%;
