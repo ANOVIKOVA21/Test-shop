@@ -3292,9 +3292,6 @@ slideshow-slide.product-media-container--tallest {
 }
 
 @media screen and (max-width: 749px) {
-  slideshow-slides {
-    height: 100vh;
-  }
 
   /* Media gallery has a peeking slide on the right side always, and on the left side when the current slide is the last one */
   .media-gallery--hint
