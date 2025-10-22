@@ -2,7 +2,12 @@
   {% content_for 'blocks' %}
 {% endcapture %}
 
-{% render 'group', children: children, settings: block.settings, shopify_attributes: block.shopify_attributes %}
+{% render 'group',
+  children: children,
+  settings: block.settings,
+  shopify_attributes: block.shopify_attributes,
+  id: block.id
+%}
 
 {% schema %}
 {
@@ -165,6 +170,7 @@
       "default": "center",
       "visible_if": "{{ block.settings.content_direction == 'column' }}"
     },
+    { "type": "checkbox", "id": "hidden", "label": "Hide on mobile", "default": false },
     {
       "type": "range",
       "id": "gap",

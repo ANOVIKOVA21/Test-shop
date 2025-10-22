@@ -6,11 +6,20 @@
   @param {string} shopify_attributes - String with Shopify attributes for the editor.
   @param {string} [class] - Custom classes for the group block.
   @param {string} [style] - Custom inline styles for the group block.
+  @param {string} id - Id of the group block.
 
   @example
   {% render 'group', children: children, settings: block.settings, shopify_attributes: block.shopify_attributes %}
 {%- enddoc -%}
-
+{% style %}
+  {% if settings.hidden %}
+    @media screen and (max-width: 749px) {
+      .block-{{ id }}{
+        display:none;
+    }
+    }
+  {% endif %}
+{% endstyle %}
 <div
   class="
     group-block
@@ -19,6 +28,7 @@
     border-style
     spacing-style
     size-style
+    block-{{ id }}
     {% if settings.inherit_color_scheme == false %} color-{{ settings.color_scheme }}{% endif %}
     {{ class }}
   "
