@@ -40,30 +40,11 @@
       --tablet-last-row-count: {{ tablet_last_row_count }};
     "
   >
-    <div class="footer-container">
-      {% content_for 'blocks' %}
-      {% render 'localization-form',
-        show_country: false,
-        show_language: true,
-        localization_style: 'dropdown',
-        block_id: block.id
-      %}
-      {% render 'dropdown-localization',
-        show_country: true,
-        show_language: false,
-        country_style: 'dropdown',
-        localization_position: 'right'
-      %}
-    </div>
+    {% content_for 'blocks' %}
   </div>
 </div>
 
 {% stylesheet %}
-  .footer-container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
   /* Mobile: Single column layout (base styles) */
   .footer-content {
     display: grid;
@@ -144,6 +125,9 @@
     },
     {
       "type": "email-signup"
+    },
+    {
+      "type": "_localization"
     }
   ],
   "enabled_on": {

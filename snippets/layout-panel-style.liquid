@@ -25,7 +25,8 @@
   endif
 -%}
 
---flex-direction: {{ settings.content_direction | default: 'column' }}; --flex-wrap: nowrap; --flex-wrap-mobile: wrap;
+--flex-direction: {{ settings.content_direction | default: 'column' }}; --flex-wrap: nowrap; --flex-wrap-mobile:
+wrap;--flex-direction-mobile: {{ settings.content_direction_mobile | default: 'column' }};
 
 {% render 'gap-style', value: settings.gap %}
 

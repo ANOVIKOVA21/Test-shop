@@ -273,7 +273,7 @@
             </span>
         {% endcomment %}
 
-        <div class="localization-form__dropdown localization-form__select">
+        <div class="localization-form__dropdown">
           <input
             id="{{ localization_style }}Select"
             type="checkbox"
@@ -641,7 +641,7 @@
   .language-selector {
     display: flex;
     gap: var(--gap-xs);
-    padding: var(--padding-md) var(--padding-lg);
+    padding: var(--padding-md) 0;
     position: relative;
     align-items: center;
     justify-content: space-between;
@@ -813,7 +813,7 @@
     background-color: var(--color-background);
     max-height: 27.5rem;
     position: absolute;
-    top: -100%;
+    top: -50%;
     z-index: calc(var(--layer-header-menu) + 1);
   }
 
