@@ -34,7 +34,10 @@
   }
 
   .utilities a {
-    color: var(--color-foreground-muted);
+    color: var(--color-foreground);
+    &:hover {
+      color: var(--color-foreground-muted);
+    }
   }
 
   .utilities > * {
@@ -142,8 +145,8 @@
     /* A => A left */
     /* Example: Policy left */
     .utilities:has(.footer-utilities__text:first-child:nth-last-child(1)) {
-      grid-template-columns: 1fr;
-      justify-content: start;
+      grid-template-columns: 2fr 1fr 1fr;
+      justify-content: space-between;
 
       .footer-utilities__text:nth-child(1) {
         justify-self: center;

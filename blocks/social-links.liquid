@@ -1,11 +1,9 @@
-
-
 <div
   class="social-icons__wrapper footer-utilities__icons"
   {{ block.shopify_attributes }}
 >
   {% liquid
-    assign social_links = 'facebook_url,instagram_url,youtube_url,tiktok_url,twitter_url,threads_url,linkedin_url,bluesky_url,snapchat_url,pinterest_url,tumblr_url,vimeo_url,custom_url' | split: ','
+    assign social_links = 'facebook_url,instagram_url,telegram_url,youtube_url,tiktok_url,twitter_url,threads_url,linkedin_url,bluesky_url,snapchat_url,pinterest_url,tumblr_url,vimeo_url,custom_url' | split: ','
   %}
 
   {% for link_key in social_links %}
@@ -20,6 +18,8 @@
             assign platform = 'facebook'
           when 'instagram_url'
             assign platform = 'instagram'
+          when 'telegram_url'
+            assign platform = 'telegram'
           when 'youtube_url'
             assign platform = 'youtube'
           when 'tiktok_url'
@@ -88,18 +88,24 @@
               {% endif %}
             {% endunless %}
           >
-            <span class="social-icons__icon-label">{{ platform | capitalize }}</span>
-            {% if render_icon %}
-              <svg
-                class="social-icons__icon"
-                aria-hidden="true"
-                focusable="false"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                {%- render 'icon', icon: platform -%}
-              </svg>
-            {% endif %}
+            {% case block.settings.display_style %}
+              {% when 'icons' %}
+                {% if render_icon %}
+                  <svg
+                    class="social-icons__icon"
+                    aria-hidden="true"
+                    focusable="false"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    {%- render 'icon', icon: platform -%}
+                  </svg>
+                {% else %}
+                  <p class="social-icons__icon-label">{{ platform | capitalize }}</p>
+                {% endif %}
+              {% when 'labels' %}
+                <p class="social-icons__icon-label">{{ platform | capitalize }}</p>
+            {% endcase %}
           </a>
         </div>
       {% endif %}
@@ -125,32 +131,18 @@
     align-items: center;
     justify-content: center;
     height: var(--icon-size-lg);
+    gap: 0.4rem;
   }
 
   .social-icons__icon {
-    display: flex;
     fill: currentColor;
     flex-shrink: 0;
     width: var(--icon-size-lg);
     height: var(--icon-size-lg);
   }
-
-  .social-icons__icon {
-    display: none;
+  .social-icons__icon-label {
+    font-size: var(--font-size, 0.75rem);
   }
-
-  .social-icons__icon-wrapper:has(.social-icons__icon path) {
-    width: var(--icon-size-lg);
-
-    .social-icons__icon {
-      display: block;
-    }
-
-    .social-icons__icon-label {
-      display: none;
-    }
-  }
-
   /* Disabled state for editor */
   .shopify-design-mode .social-icons__icon-wrapper--disabled {
     opacity: var(--disabled-opacity, 0.5);
@@ -168,6 +160,16 @@
   "tag": null,
   "settings": [
     {
+      "type": "select",
+      "id": "display_style",
+      "label": "Display style",
+      "options": [
+        { "value": "icons", "label": "Icons only" },
+        { "value": "labels", "label": "Text only" }
+      ],
+      "default": "labels"
+    },
+    {
       "type": "url",
       "id": "facebook_url",
       "label": "t:options.facebook"
@@ -176,6 +178,11 @@
       "type": "url",
       "id": "instagram_url",
       "label": "t:options.instagram"
+    },
+    {
+      "type": "url",
+      "id": "telegram_url",
+      "label": "Telegram"
     },
     {
       "type": "url",

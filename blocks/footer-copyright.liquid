@@ -10,18 +10,19 @@
   {{ block.shopify_attributes }}
 >
   <span class="footer-utilities__text">
-    &copy; {{ 'now' | date: '%Y' }}
+    &copy;
     {{ shop.name | link_to: routes.root_url -}}
-    {% if template.name == '404' %} Fog error. {% endif %}
-    All rights reserved&ensp;
+    &ensp;
     {%- if block_settings.show_powered_by -%}
       |&ensp;{{ powered_by_link }}
     {%- endif -%}
+    {{ 'now' | date: '%Y' }}
   </span>
 </div>
 {% stylesheet %}
   .footer-utilities__text {
     text-wrap: wrap;
+    justify-self: end;
   }
 {% endstylesheet %}
 {% schema %}

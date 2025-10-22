@@ -24,7 +24,7 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "flex-start",
-            "gap": 6,
+            "gap": 16,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -56,7 +56,7 @@
             "text_hQPzkT": {
               "type": "text",
               "settings": {
-                "text": "<h2><strong>Newsletter</strong></h2>",
+                "text": "<h2>Newsletter</h2>",
                 "width": "fit-content",
                 "max_width": "narrow",
                 "alignment": "left",
@@ -81,7 +81,7 @@
             "text_nyeiHa": {
               "type": "text",
               "settings": {
-                "text": "<p><strong>Sign up to our newsletter to get 15% off your order, alongside early access to new drops.</strong></p>",
+                "text": "<p>Sign up to our newsletter to get 15% off your order, alongside early access to new drops.</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -155,9 +155,11 @@
           "type": "social-links",
           "name": "t:names.social_media_links",
           "settings": {
+            "display_style": "labels",
             "facebook_url": "",
-            "instagram_url": "https://www.instagram.com/",
-            "youtube_url": "https://www.youtube.com/",
+            "instagram_url": "https://www.instagram.com/aaa",
+            "telegram_url": "https://web.telegram.org/aa",
+            "youtube_url": "https://www.youtube.com/aaa",
             "tiktok_url": "",
             "twitter_url": "",
             "threads_url": "",
@@ -167,7 +169,7 @@
             "pinterest_url": "",
             "tumblr_url": "",
             "vimeo_url": "",
-            "custom_url": "https://web.telegram.org/a/"
+            "custom_url": ""
           },
           "blocks": {}
         },
@@ -202,7 +204,7 @@
         "divider_thickness": 0,
         "color_scheme": "scheme-2",
         "padding-block-start": 20,
-        "padding-block-end": 20
+        "padding-block-end": 40
       }
     }
   },
