@@ -57,7 +57,10 @@
           ></span>
         {% endif %}
         <span class="currency-code">
+          {{- localization.country -}}
+          (
           {{- localization.country.currency.iso_code -}}
+          )
         </span>
       {% endif %}
 
