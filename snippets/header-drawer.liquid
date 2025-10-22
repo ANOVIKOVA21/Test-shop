@@ -598,6 +598,12 @@
             show_language: show_language,
             country_style: section.settings.country_selector_style
           %}
+          {% render 'dropdown-localization',
+            show_country: true,
+            show_language: false,
+            country_style: 'dropdown',
+            localization_position: 'right'
+          %}
         {%- endif -%}
       </div>
     </div>
@@ -641,7 +647,9 @@
     display: flex;
     min-height: 60px;
     align-items: center;
-
+    dropdown-localization-component .localization-wrapper.right-bound {
+      right: 50%;
+    }
     @media screen and (min-width: 750px) {
       min-height: 0;
     }
@@ -1039,8 +1047,7 @@
     width: fit-content;
     padding-inline-start: 0;
     margin-top: 30px;
-    .localization-form__select,
-    .localization-form__dropdown {
+    .localization-form__select {
       text-align: left;
       text-transform: uppercase;
     }
