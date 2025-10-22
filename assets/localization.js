@@ -104,11 +104,10 @@ class LocalizationFormComponent extends Component {
    */
   changeLanguage(event) {
     const { form, languageInput } = this.refs;
-    const value = event.target instanceof HTMLSelectElement ? event.target.value : null;
+    const value = event.target instanceof HTMLInputElement ? event.target.value : null;
 
     if (value) {
       languageInput.value = value;
-      this.resizeLanguageInput();
       form.submit();
     }
   }

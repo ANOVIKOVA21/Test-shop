@@ -1,5 +1,3 @@
-
-
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
   class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
@@ -42,11 +40,24 @@
       --tablet-last-row-count: {{ tablet_last_row_count }};
     "
   >
-    {% content_for 'blocks' %}
+    <div class="footer-container">
+      {% content_for 'blocks' %}
+      {% render 'localization-form',
+        show_country: false,
+        show_language: true,
+        localization_style: 'dropdown',
+        block_id: block.id
+      %}
+    </div>
   </div>
 </div>
 
 {% stylesheet %}
+  .footer-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
   /* Mobile: Single column layout (base styles) */
   .footer-content {
     display: grid;
