@@ -213,6 +213,21 @@
               },
               "block_order": []
             },
+            "button_RcXaJU": {
+              "type": "button",
+              "name": "t:names.button",
+              "settings": {
+                "label": "+ add to wishlist",
+                "link": "shopify://collections/all",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "custom",
+                "custom_width": 100,
+                "width_mobile": "custom",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            },
             "accordion_ApdjBA": {
               "type": "accordion",
               "name": "t:names.accordion",
@@ -387,6 +402,7 @@
             "group_icgrde",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
+            "button_RcXaJU",
             "accordion_ApdjBA"
           ]
         }

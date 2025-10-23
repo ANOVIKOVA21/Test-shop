@@ -252,7 +252,7 @@
     --variant-picker-stroke-color: var(--color-variant-border);
 
     display: flex;
-    flex: 0 0 calc(3ch + 1.3em);
+    flex: 0 0 calc(3ch + 1em);
     align-items: center;
     position: relative;
     padding-block: var(--padding-sm);
@@ -262,7 +262,7 @@
     border-width: var(--options-border-width);
     overflow: clip;
     justify-content: center;
-    min-height: calc(3ch + 1.3em);
+    min-height: fit-content;
     min-width: fit-content;
     white-space: nowrap;
     background-color: var(--color-variant-background);
@@ -277,7 +277,7 @@
     }
 
     @media screen and (min-width: 750px) {
-      padding: var(--padding-xs) var(--variant-option-padding-inline);
+      padding: 0.3rem 0.2rem;
     }
   }
 

@@ -1455,13 +1455,18 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   text-align: center;
 }
 
-.link.link--AeGQ3b1VGZFdNdWNHe__button_b4jG8q {
-  font-weight: 500;
+.link.link--AeGQ3b1VGZFdNdWNHe__button_b4jG8q,
+.link.link--AU1BDNVVzek1CZ0xZN__button_RcXaJU {
   text-decoration: underline;
 
   .icon-arrow-diagonal {
     display: none;
   }
+}
+
+.link.link--AU1BDNVVzek1CZ0xZN__button_RcXaJU {
+  text-transform: lowercase;
+  text-align: right;
 }
 
 shopify-accelerated-checkout,
@@ -1503,7 +1508,7 @@ summary:hover {
 }
 
 summary .svg-wrapper {
-  margin-inline-start: auto;
+  margin-inline-start: 5px;
   height: var(--icon-size-xs);
   width: var(--icon-size-xs);
   transition: transform var(--animation-speed) var(--animation-easing);
@@ -1534,6 +1539,11 @@ details[open] > summary .icon-plus .vertical,
 details[open]>summary .icon-caret,
 .details-open>summary .icon-caret {
   transform: scaleY(-1);
+}
+
+.details-content .description-list {
+  padding: 0;
+  list-style-type: none;
 }
 
 /* Product Media */
