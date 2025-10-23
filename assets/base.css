@@ -3235,7 +3235,7 @@ slideshow-slides {
   }
 
   &[size='medium'] {
-    min-height: 21.25rem;
+    height: 100vh;
   }
 
   &[size='large'] {
