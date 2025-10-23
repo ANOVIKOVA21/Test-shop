@@ -2226,7 +2226,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 
 /* Spacing style */
 .spacing-style {
-  --spacing-scale: var(--spacing-scale-md);
+  --spacing-scale: var(--spacing-scale-sm);
 
   @media screen and (min-width: 990px) {
     --spacing-scale: var(--spacing-scale-default);
