@@ -1,5 +1,3 @@
-
-
 {% assign block_settings = block.settings %}
 
 {%- if block_settings.zoom -%}
@@ -42,8 +40,10 @@
 
   assign slideshow_controls_style = block_settings.slideshow_controls_style
   # Use a counter instead of dots when there are many images to avoid cropping/overflow.
-  if slideshow_controls_style == 'dots' and selected_product.media.size > 15
-    assign slideshow_controls_style = 'counter'
+  if slideshow_controls_style == 'dots' or slideshow_controls_style == 'rectangles'
+    if selected_product.media.size > 15
+      assign slideshow_controls_style = 'counter'
+    endif
   endif
 
   assign render_slideshow_arrows = false
@@ -793,6 +793,10 @@
           "label": "t:options.dots"
         },
         {
+          "value": "rectangles",
+          "label": "t:options.rectangles"
+        },
+        {
           "value": "counter",
           "label": "t:options.counter"
         },
@@ -811,6 +815,10 @@
         {
           "value": "dots",
           "label": "t:options.dots"
+        },
+        {
+          "value": "rectangles",
+          "label": "t:options.rectangles"
         },
         {
           "value": "counter",

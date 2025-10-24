@@ -3512,6 +3512,7 @@ slideshow-controls[controls-on-media] {
   &:has(.slideshow-controls__dots, .slideshow-controls__counter, .slideshow-controls__rectangles) {
     --color-foreground: #fff;
     --color-foreground-rgb: var(--color-white-rgb);
+    mix-blend-mode: difference;
   }
 
   &[pagination-position='right'] {
