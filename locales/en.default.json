@@ -10,6 +10,7 @@
 {
   "accessibility": {
     "account": "Open account menu",
+    "size_grid": "Open size grid",
     "cart": "Cart",
     "cart_count": "Total items in cart",
     "close_dialog": "Close dialog",
@@ -75,6 +76,7 @@
     "enter_password": "Enter password",
     "log_in_html": "Have an account? <a href=\"{{ link }}\">Log in</a> to check out faster.",
     "log_in": "Sign in",
+    "enter": "Log in",
     "log_out": "Log out",
     "open_image_in_full_screen": "Open image in full screen",
     // Button to remove applied filters from search/collection results
@@ -104,7 +106,61 @@
     "sign_up": "Sign up",
     "submit": "Submit",
     "view_store_information": "View store information",
-    "sort": "Sort"
+    "sort": "Sort",
+    "size_grid": "size grid"
+  },
+  "size_grid_table": {
+    "caption": "SIZE Grid",
+    "size": "Size",
+    "chest": "Chest",
+    "shoulders": "Shoulders",
+    "length": "Length",
+    "sleeve": "Sleeve",
+    "sizeS": "S",
+    "sizeM": "M",
+    "sizeL": "L",
+    "sizeXL": "XL",
+    "sizeXXL": "XXL",
+    "notes": "*(space for notes and additional text)",
+    "t_shirt": {
+      "chestS": "54",
+      "shouldersS": "50",
+      "lengthS": "68",
+      "chestM": "56",
+      "shouldersM": "52",
+      "lengthM": "70",
+      "chestL": "58",
+      "shouldersL": "54",
+      "lengthL": "72",
+      "chestXL": "61",
+      "shouldersXL": "56",
+      "lengthXL": "73",
+      "chestXXL": "63",
+      "shouldersXXL": "58",
+      "lengthXXL": "75"
+    },
+    "hoodie": {
+      "chestS": "58",
+      "shouldersS": "61",
+      "lengthS": "70",
+      "sleeveS": "63",
+      "chestM": "60",
+      "shouldersM": "63",
+      "lengthM": "72",
+      "sleeveM": "64",
+      "chestL": "63",
+      "shouldersL": "65",
+      "lengthL": "74",
+      "sleeveL": "65",
+      "chestXL": "66",
+      "shouldersXL": "67",
+      "lengthXL": "76",
+      "sleeveXL": "66",
+      "chestXXL": "68",
+      "shouldersXXL": "69",
+      "lengthXXL": "78",
+      "sleeveXXL": "67"
+    }
   },
   "blocks": {
     "contact_form": {

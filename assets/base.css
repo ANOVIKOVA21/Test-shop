@@ -1455,8 +1455,8 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   text-align: center;
 }
 
-.link.link--AeGQ3b1VGZFdNdWNHe__button_b4jG8q,
-.link.link--AU1BDNVVzek1CZ0xZN__button_RcXaJU {
+.link.link--AaGVYRlRnTGRGanlSV__button_b4jG8q,
+.link.link--AQWdZMTJaWWUzMjBSO__button_RcXaJU {
   text-decoration: underline;
 
   .icon-arrow-diagonal {
@@ -1464,7 +1464,7 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   }
 }
 
-.link.link--AU1BDNVVzek1CZ0xZN__button_RcXaJU {
+.link.link--AQWdZMTJaWWUzMjBSO__button_RcXaJU {
   text-transform: lowercase;
   text-align: right;
 }

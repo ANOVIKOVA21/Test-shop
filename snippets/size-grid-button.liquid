@@ -1,0 +1,31 @@
+{%- doc -%}
+  Renders an size-grid button.
+
+  @param {string} [attributes] - Additional attributes to add to the tag
+{%- enddoc -%}
+
+<button
+  type="button"
+  class="size-grid-button"
+  aria-label="{{ 'accessibility.size_grid' | t }}"
+  {{ attributes }}
+>
+  {{ 'actions.size_grid' | t }}
+</button>
+
+{% stylesheet %}
+  .size-grid-button {
+    font-family: inherit;
+    font-weight: inherit;
+    color: var(--color-foreground);
+    border: none;
+    background: none;
+    transition: color var(--animation-speed) var(--animation-easing);
+    text-decoration: underline;
+    text-transform: lowercase;
+    cursor: pointer;
+    &:hover {
+      color: #a0a0a0;
+    }
+  }
+{% endstylesheet %}

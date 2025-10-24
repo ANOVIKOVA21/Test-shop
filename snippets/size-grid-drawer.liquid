@@ -1,0 +1,134 @@
+{%- doc -%}
+  Renders the size grid drawer, which is used for mobile users.
+
+  @param {object} size-grid - Object has type, img and boolean value has-sleeve
+{%- enddoc -%}
+
+<script
+  src="{{ 'dialog.js' | asset_url }}"
+  type="module"
+></script>
+
+<dialog-component
+  class="size-grid-drawer"
+  {{ block.shopify_attributes }}
+>
+  {% render 'size-grid-button', attributes: 'on:click="/showDialog"' %}
+  <dialog
+    ref="dialog"
+    class="color-{{ settings.popover_color_scheme }} dialog-modal dialog-drawer dialog-bottom-sheet size-grid-drawer__dialog"
+    scroll-lock
+  >
+    <button
+      ref="closeButton"
+      on:click="/closeDialog"
+      type="button"
+      class="button button-unstyled close-button size-grid-drawer__close-button"
+      aria-label="{{ 'actions.close_dialog' | t }}"
+    >
+      <span
+        class="svg-wrapper"
+        aria-hidden="true"
+      >
+        {{- 'icon-close.svg' | inline_asset_content -}}
+      </span>
+    </button>
+    {% assign sizes = 'S,M,L,XL,XXL' | split: ',' %}
+    {% if size-grid.has_sleeve %}
+      {% assign fields = 'chest,shoulders,length,sleeve' | split: ',' %}
+    {% else %}
+      {% assign fields = 'chest,shoulders,length' | split: ',' %}
+    {% endif %}
+    {% assign grid_type = size-grid.type | replace: '-', '_' %}
+    <table class="size-grid-table">
+      <caption>
+        {{ 'size_grid_table.caption' | t }}
+      </caption>
+      <thead>
+        <tr>
+          <th class="size-grid-table__col-name">{{ 'size_grid_table.size' | t }}</th>
+          {% for field in fields %}
+            {% assign column_name_key = 'size_grid_table.' | append: field %}
+            <th class="size-grid-table__col-name">{{ column_name_key | t }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for size in sizes %}
+          <tr>
+            <th>{{ 'size_grid_table.size' | append: size | t }}</th>
+            {% for field in fields %}
+              {% assign key = 'size_grid_table.' | append: grid_type | append: '.' | append: field | append: size %}
+              <td>{{ key | t }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p class="table_notes">{{ 'size_grid_table.notes' | t }}</p>
+    <img src="{{ size-grid.img | image_url}}" alt="size grid" width="380" height="380">
+  </dialog>
+</dialog-component>
+
+{% stylesheet %}
+  .size-grid-drawer__dialog:modal {
+    max-height: 100dvh;
+    overflow-y: auto;
+  }
+  .size-grid-drawer__dialog {
+    width: 28.75rem;
+    max-width: 95vw;
+    height: 100%;
+    margin: 0 0 0 auto;
+    padding: clamp(1.2rem, 2.6vw, 1.625rem) clamp(2rem, 4vw, 2.5rem);
+    border-radius: 0;
+    overflow: hidden;
+    @media screen and (max-width: 500px) {
+      max-width: 100vw;
+      width: 100%;
+      padding: 1rem;
+    }
+  }
+
+  .size-grid-drawer__close-button {
+    z-index: 1;
+    inset-block-start: var(--padding-xs);
+    inset-inline-end: var(--padding-xs);
+    color: var(--color-foreground);
+    background-color: transparent;
+  }
+
+  .size-grid-drawer__close-button .svg-wrapper {
+    display: flex;
+    width: var(--button-size);
+    height: var(--button-size);
+    align-items: center;
+    justify-content: center;
+  }
+  .size-grid-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  .size-grid-table caption {
+    text-align: left;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+  }
+  .size-grid-table th {
+    font-weight: 500;
+  }
+  .size-grid-table__col-name {
+    text-transform: lowercase;
+  }
+  .size-grid-table tr {
+    border-bottom: 1.5px solid #121212;
+  }
+  .size-grid-table td,
+  .size-grid-table th {
+    text-align: left;
+  }
+  .table_notes {
+    color: #a0a0a0;
+  }
+{% endstylesheet %}
