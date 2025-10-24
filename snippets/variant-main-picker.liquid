@@ -216,6 +216,11 @@
     --options-border-radius: var(--variant-picker-button-radius);
     --options-border-width: var(--variant-picker-button-border-width);
     --variant-option-padding-inline: var(--padding-md);
+    @media (max-width: 749px) {
+      &:first-of-type {
+        order: 2;
+      }
+    }
   }
 
   .variant-option--swatches {
