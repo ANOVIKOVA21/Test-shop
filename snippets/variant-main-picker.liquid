@@ -111,7 +111,8 @@
                 {% render 'strikethrough-variant', product_option: product_option_value %}
               </label>
             {%- endfor -%}
-            {% if product_option.name == 'Size' %}
+            {% assign size_text = 'size_grid_table.size' | t %}
+            {% if product_option.name == size_text %}
               {% assign size_grid = product.metafields.custom.size_grid.value %}
               {% if size_grid %}
                 {% render 'size-grid-drawer', size-grid: size_grid %}
