@@ -206,7 +206,13 @@
       }
     }
   }
-
+  @media screen and (max-width: 749px) and (min-width: 500px) {
+    .product-information__media .product-media .product-media__image {
+      width: 70vw;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+  }
   ::view-transition-old(gallery-item),
   ::view-transition-new(gallery-item) {
     animation-duration: 0ms;

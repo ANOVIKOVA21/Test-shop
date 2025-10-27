@@ -1604,7 +1604,7 @@ media-gallery.media-gallery--grid .media-gallery__grid .product-media-container 
 
 @media screen and (max-width: 749px) {
   .product-media-container.constrain-height {
-    max-height: none;
+    max-height: 100vh;
   }
 }
 
