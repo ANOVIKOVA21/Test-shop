@@ -34,12 +34,11 @@
       </span>
     </button>
     {% assign sizes = 'S,M,L,XL,XXL' | split: ',' %}
-    {% if size-grid.has_sleeve %}
-      {% assign fields = 'chest,shoulders,length,sleeve' | split: ',' %}
-    {% else %}
-      {% assign fields = 'chest,shoulders,length' | split: ',' %}
-    {% endif %}
+    {% assign array_fields = size-grid.parameters %}
+    {% assign cleaned = array_fields | remove: '[' | remove: ']' | remove: '"' %}
+    {% assign fields = cleaned | split: ',' %}
     {% assign grid_type = size-grid.type | replace: '-', '_' %}
+
     <table class="size-grid-table">
       <caption>
         {{ 'size_grid_table.caption' | t }}
@@ -48,8 +47,7 @@
         <tr>
           <th class="size-grid-table__col-name">{{ 'size_grid_table.size' | t }}</th>
           {% for field in fields %}
-            {% assign column_name_key = 'size_grid_table.' | append: field %}
-            <th class="size-grid-table__col-name">{{ column_name_key | t }}</th>
+            <th class="size-grid-table__col-name">{{ field }}</th>
           {% endfor %}
         </tr>
       </thead>
