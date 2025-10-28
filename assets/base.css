@@ -55,8 +55,17 @@ select {
   border-radius: var(--style-border-radius-inputs);
 }
 
+input::placeholder {
+  color: #D0D0D0;
+  text-transform: lowercase;
+}
+
 input:hover {
   background-color: var(--color-input-hover-background);
+}
+
+input:focus-visible {
+  outline: none;
 }
 
 /** override ios and firefox defaults */
@@ -1264,6 +1273,7 @@ results-list[initialized] {
 .dialog-drawer {
   --dialog-drawer-opening-animation: slideInLeft;
   --dialog-drawer-closing-animation: slideOutLeft;
+  border-radius: 0;
 }
 
 .dialog-drawer--right {
@@ -1278,6 +1288,11 @@ results-list[initialized] {
 
 .dialog-drawer.dialog-closing {
   animation: var(--dialog-drawer-closing-animation) var(--animation-speed) var(--animation-easing);
+}
+
+.dialog-drawer:modal {
+  max-height: 100dvh;
+  overflow-y: auto;
 }
 
 /* Buttons */

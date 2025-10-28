@@ -32,6 +32,7 @@
     "nested_product": "{{ product_title }} for {{ parent_title }}",
     "new_window": "Opens in a new window.",
     "open_cart_drawer": "Open cart",
+    "open_login_drawer": "Open login",
     "open_search_modal": "Open search",
     "quantity": "Quantity",
     "pause_video": "Pause video",
@@ -78,7 +79,11 @@
     "log_in_html": "Have an account? <a href=\"{{ link }}\">Log in</a> to check out faster.",
     "log_in": "Sign in",
     "enter": "Log in",
+    "log_in_account": "Log in to your account",
     "log_out": "Log out",
+    "create_account": "Create account",
+    "create": "Create",
+    "reset_password": "Reset password",
     "open_image_in_full_screen": "Open image in full screen",
     // Button to remove applied filters from search/collection results
     "remove": "Remove",
@@ -166,9 +171,18 @@
   "blocks": {
     "contact_form": {
       "name": "Name",
+      "first_name": "first name",
+      "last_name": "last name",
       "email": "Email",
       "phone": "Phone",
+      "password": "password",
       "comment": "Comment",
+      "not_a_member": "Not a member?",
+      "forgot_password": "Forgot password",
+      "forgotten_password": "Forgotten password?",
+      "have_account": "Do you already have account?",
+      "reset_password_instructions": "Enter your email and we'll send you the instructions to create your new password",
+      "return_to": "Or return to ",
       "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
       "error_heading": "Please adjust the following:"
     },
