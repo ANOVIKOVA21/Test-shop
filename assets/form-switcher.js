@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function showForm(formName) {
-    document.querySelectorAll('.login-drawer').forEach((form) => {
+    document.querySelectorAll('.login-drawer__content').forEach((form) => {
       form.classList.remove('is-active');
     });
     document.querySelector(`.login-drawer__${formName}`).classList.add('is-active');

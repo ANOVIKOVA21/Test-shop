@@ -10,8 +10,14 @@
   src="{{ 'form-switcher.js' | asset_url }}"
   type="module"
 ></script>
+
+<script
+  src="{{ 'wishlist-handler.js' | asset_url }}"
+  type="module"
+></script>
+
 <dialog-component
-  class="size-grid-drawer"
+  class="login-drawer"
   {{ block.shopify_attributes }}
 >
   {% render 'account-button', attributes: 'on:click="/showDialog"' %}
@@ -36,10 +42,16 @@
         </span>
       </button>
       <!-- LOGIN FORM -->
-      <div class="login-drawer login-drawer__login is-active">
+      <div class="login-drawer__content login-drawer__login is-active">
         <h2 class="login-drawer__title">{{ 'actions.enter' | t }}</h2>
         {% form 'customer_login' %}
-          <h3 class="login-drawer__title">{{ 'actions.log_in_account' | t }}</h3>
+          <h3
+            class="login-drawer__title login-drawer__form-title"
+            data-default-text="{{ 'actions.log_in_account' | t }}"
+            data-wishlist-text="{{ 'blocks.contact_form.use_wishlist' | t }}"
+          >
+            {{ 'actions.log_in_account' | t }}
+          </h3>
           <input
             type="email"
             name="customer[email]"
@@ -70,7 +82,7 @@
       </div>
 
       <!-- REGISTER FORM -->
-      <div class="login-drawer login-drawer__register">
+      <div class="login-drawer__content login-drawer__register">
         <h2 class="login-drawer__title">{{ 'actions.create_account' | t }}</h2>
 
         {% form 'create_customer' %}
@@ -114,7 +126,7 @@
       </div>
 
       <!-- RESET FORM -->
-      <div class="login-drawer login-drawer__reset">
+      <div class="login-drawer__content login-drawer__reset">
         <h2 class="login-drawer__title">{{ 'actions.reset_password' | t }}</h2>
         {% form 'recover_customer_password' %}
           <h3 class="login-drawer__title">{{ 'blocks.contact_form.forgotten_password' | t }}</h3>
@@ -151,12 +163,12 @@
       padding: 1rem;
     }
   }
-  .login-drawer {
+  .login-drawer__content {
     display: none;
     font-size: 14px;
     font-weight: 500;
     height: 100%;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: repeat(3, 1fr);
   }
   .login-drawer form {
     display: flex;
@@ -171,7 +183,7 @@
     font-size: inherit;
     font-weight: inherit;
   }
-  .login-drawer.is-active {
+  .login-drawer__content.is-active {
     display: grid;
   }
   .login-drawer__title {
@@ -185,12 +197,11 @@
   .login-drawer__actions,
   .login-drawer__actions-group {
     display: flex;
-    gap: 1rem;
     align-items: baseline;
   }
-  /* .login-drawer__actions-container{
-    display: flex;
-  } */
+  .login-drawer__login .login-drawer__actions {
+    justify-content: space-between;
+  }
   .login-drawer__reset .login-drawer__actions {
     margin-top: 8px;
   }
@@ -205,30 +216,3 @@
     width: 100%;
   }
 {% endstylesheet %}
-{% comment %}
-  <script>
-    document.addEventListener('')
-    document.getElementById('login-toggle').addEventListener('click', () => {
-      document.getElementById('customer-drawer').classList.remove('hidden');
-      showForm('login');
-    });
-
-    document.querySelector('.drawer__close').addEventListener('click', () => {
-      document.getElementById('customer-drawer').classList.add('hidden');
-    });
-
-    document.querySelectorAll('.login-drawer__actions-switch').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const target = btn.dataset.target;
-        showForm(target);
-      });
-    });
-
-    function showForm(formName) {
-      document.querySelectorAll('.login-drawer').forEach((form) => {
-        form.classList.remove('is-active');
-      });
-      document.querySelector(`.drawer__${formName}`).classList.add('is-active');
-    }
-  </script>
-{% endcomment %}

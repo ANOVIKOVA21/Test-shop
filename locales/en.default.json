@@ -183,6 +183,7 @@
       "have_account": "Do you already have account?",
       "reset_password_instructions": "Enter your email and we'll send you the instructions to create your new password",
       "return_to": "Or return to ",
+      "use_wishlist": "To use the Wishlist, please log in",
       "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
       "error_heading": "Please adjust the following:"
     },
