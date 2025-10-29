@@ -1,39 +1,44 @@
-
 {% assign block_settings = block.settings %}
+{% capture content %}
+  {% content_for 'blocks' %}
+{% endcapture %}
 
-<accordion-custom
-  {% if block_settings.open_by_default %}
-    open-by-default-on-desktop
-    open-by-default-on-mobile
-  {% endif %}
->
-  <details
-    class="details"
-    data-testid="accordion-details"
-    {{ block.shopify_attributes }}
+{% assign content = content | strip %}
+
+{% if content != blank %}
+  <accordion-custom
+    {% if block_settings.open_by_default %}
+      open-by-default-on-desktop
+      open-by-default-on-mobile
+    {% endif %}
   >
-    <summary class="details__header">
-      {% render 'icon-or-image',
-        icon: block_settings.icon,
-        image_upload: block_settings.image_upload,
-        width: block_settings.width,
-        class_name: 'details__icon'
-      %}
-      {{ block_settings.heading }}
-      <span class="svg-wrapper icon-caret icon-animated">
-        {{- 'icon-caret.svg' | inline_asset_content -}}
-      </span>
-      <span class="svg-wrapper icon-plus">
-        {{- 'icon-plus.svg' | inline_asset_content -}}
-      </span>
-    </summary>
+    <details
+      class="details"
+      data-testid="accordion-details"
+      {{ block.shopify_attributes }}
+    >
+      <summary class="details__header">
+        {% render 'icon-or-image',
+          icon: block_settings.icon,
+          image_upload: block_settings.image_upload,
+          width: block_settings.width,
+          class_name: 'details__icon'
+        %}
+        {{ block_settings.heading }}
+        <span class="svg-wrapper icon-caret icon-animated">
+          {{- 'icon-caret.svg' | inline_asset_content -}}
+        </span>
+        <span class="svg-wrapper icon-plus">
+          {{- 'icon-plus.svg' | inline_asset_content -}}
+        </span>
+      </summary>
 
-    <div class="details-content">
-      {% content_for 'blocks' %}
-    </div>
-  </details>
-</accordion-custom>
-
+      <div class="details-content">
+        {{ content }}
+      </div>
+    </details>
+  </accordion-custom>
+{% endif %}
 {% stylesheet %}
   .details__icon {
     height: auto;

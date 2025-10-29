@@ -382,7 +382,7 @@
                     "text_EgYNnd": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>If you have any questions or need help, please contact us directly at customerservice@optimusgang.world</p>",
+                        "text": "<p>If you have any questions or need help, please contact us directly at <a href=\"mailto:customerservice@optimusgang.world\" target=\"_blank\" title=\"mailto:customerservice@optimusgang.world\">customerservice@optimusgang.world</a></p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
