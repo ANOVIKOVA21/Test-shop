@@ -219,18 +219,14 @@
 
   .header-actions__cart-icon {
     --cart-bubble-size: 20px;
-    --cart-bubble-top: 4.5px;
-    --cart-bubble-right: 2.5px;
-
-    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 3px;
     text-transform: uppercase;
   }
 
   .header-actions__cart-icon .cart-bubble {
-    position: absolute;
     width: var(--cart-bubble-size, 20px);
-    top: var(--cart-bubble-top);
-    right: var(--cart-bubble-right);
   }
 
   .header-actions__cart-icon .cart-bubble__text,
@@ -250,7 +246,7 @@
   }
 
   .cart-drawer__heading .cart-bubble__background {
-    background-color: rgb(var(--color-foreground-rgb) / var(--opacity-10-25));
+    background-color: transparent;
   }
 
   .cart-drawer__heading .cart-bubble__text {

@@ -2625,7 +2625,6 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 /* Cart bubble */
 .cart-bubble {
   --cart-padding: 0.2em;
-
   position: relative;
   width: 20px;
   aspect-ratio: 1;
@@ -2635,19 +2634,17 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   line-height: normal;
   align-items: center;
   justify-content: center;
-  color: var(--color-primary-button-text);
   padding-inline: var(--cart-padding);
 }
 
 .cart-bubble__background {
-  position: absolute;
   inset: 0;
-  background-color: var(--color-primary-button-background);
+  background-color: transparent;
   border-radius: var(--style-border-radius-lg);
 }
 
 .cart-bubble__text {
-  font-size: var(--font-size--2xs);
+  font-size: var(--font-size--xs);
   z-index: var(--layer-flat);
   line-height: 1;
   display: flex;
