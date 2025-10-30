@@ -22,7 +22,7 @@
 
 {% stylesheet %}
   .account-popover {
-    --account-popover-min-width: 22rem;
+    --account-popover-min-width: 18.75rem;
     --account-actions-max-width: 22rem;
   }
 
@@ -34,16 +34,32 @@
     }
   }
 
+  .header__column--right:has(.account-popover__panel:popover-open)::after {
+    position: absolute;
+    content: '';
+    width: 18.75rem;
+    height: 100%;
+    right: 0;
+    background-color: var(--color-background);
+    z-index: -1;
+  }
+  .header__row:has(.account-popover__panel:popover-open) {
+    mix-blend-mode: difference;
+  }
+  .header__row:has(.account-popover__panel:popover-open) {
+    color: var(--color-primary);
+    .account-button {
+      color: var(--color-primary);
+    }
+  }
   .account-popover__panel {
     --account-popover-opacity: 0;
     --account-popover-y: 20px;
     position-anchor: --account-button-trigger;
-    border-radius: var(--style-border-radius-popover);
     margin: 0;
     left: unset;
     width: max-content;
     min-width: var(--account-popover-min-width);
-    box-shadow: var(--shadow-popover);
     border: var(--style-border-popover);
     background-color: var(--color-background);
     overflow-y: hidden;
@@ -54,7 +70,6 @@
     transition-timing-function: var(--ease-out-quad);
     transition-behavior: allow-discrete;
     top: calc(anchor(bottom) + var(--header-padding));
-    right: anchor(right);
 
     &:popover-open {
       --account-popover-opacity: 1;

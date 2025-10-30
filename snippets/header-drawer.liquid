@@ -576,7 +576,7 @@
           {% endif %}
         </ul>
       </nav>
-      {% render 'account-drawer' %}
+      {% render 'account-accordion' %}
       <div
         class="menu-drawer__utility-links menu-drawer__animated-element"
         style="--menu-drawer-animation-index: {{ linklist.links.size }};"
@@ -959,7 +959,7 @@
     text-decoration: none;
     justify-content: start;
     align-items: center;
-    font-size: 1rem;
+    font-size: 0.875rem;
   }
   summary .menu-drawer__menu-item-text {
     text-transform: uppercase;
@@ -1102,7 +1102,7 @@
     display: flex;
     flex-direction: column;
     padding: 0;
-    margin-left: 8px;
+    padding-inline: var(--drawer-padding);
     /* margin-block: auto var(--padding-sm);
     margin-inline-start: var(--padding-xl); */
     background-color: rgb(var(--color-foreground) 0.03);

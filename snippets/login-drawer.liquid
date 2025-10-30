@@ -1,5 +1,5 @@
 {%- doc -%}
-  Renders the size grid drawer, which is used for mobile users.
+  Renders the login drawer.
 {%- enddoc -%}
 
 <script
@@ -21,134 +21,133 @@
   {{ block.shopify_attributes }}
 >
   {% render 'account-button', attributes: 'on:click="/showDialog"' %}
-  {%- unless customer -%}
-    <dialog
-      ref="dialog"
-      class="color-{{ settings.popover_color_scheme }} dialog-modal dialog-drawer dialog-bottom-sheet login-drawer__dialog"
-      scroll-lock
+
+  <dialog
+    ref="dialog"
+    class="color-{{ settings.popover_color_scheme }} dialog-modal dialog-drawer dialog-bottom-sheet login-drawer__dialog"
+    scroll-lock
+  >
+    <button
+      ref="closeButton"
+      on:click="/closeDialog"
+      type="button"
+      class="button button-unstyled close-button login-drawer__close-button"
+      aria-label="{{ 'actions.close_dialog' | t }}"
     >
-      <button
-        ref="closeButton"
-        on:click="/closeDialog"
-        type="button"
-        class="button button-unstyled close-button login-drawer__close-button"
-        aria-label="{{ 'actions.close_dialog' | t }}"
+      <span
+        class="svg-wrapper"
+        aria-hidden="true"
       >
-        <span
-          class="svg-wrapper"
-          aria-hidden="true"
+        {{- 'icon-close.svg' | inline_asset_content -}}
+      </span>
+    </button>
+    <!-- LOGIN FORM -->
+    <div class="login-drawer__content login-drawer__login is-active">
+      <h2 class="login-drawer__title">{{ 'actions.enter' | t }}</h2>
+      {% form 'customer_login' %}
+        <h3
+          class="login-drawer__title login-drawer__form-title"
+          data-default-text="{{ 'actions.log_in_account' | t }}"
+          data-wishlist-text="{{ 'blocks.contact_form.use_wishlist' | t }}"
         >
-          {{- 'icon-close.svg' | inline_asset_content -}}
-        </span>
-      </button>
-      <!-- LOGIN FORM -->
-      <div class="login-drawer__content login-drawer__login is-active">
-        <h2 class="login-drawer__title">{{ 'actions.enter' | t }}</h2>
-        {% form 'customer_login' %}
-          <h3
-            class="login-drawer__title login-drawer__form-title"
-            data-default-text="{{ 'actions.log_in_account' | t }}"
-            data-wishlist-text="{{ 'blocks.contact_form.use_wishlist' | t }}"
-          >
-            {{ 'actions.log_in_account' | t }}
-          </h3>
-          <input
-            type="email"
-            name="customer[email]"
-            class="input login-drawer__input"
-            placeholder="{{ 'blocks.contact_form.email' | t }}"
-            required
-          >
-          <input
-            type="password"
-            name="customer[password]"
-            class="input login-drawer__input"
-            placeholder="{{ 'blocks.contact_form.password' | t }}"
-            required
-          >
-          <button type="submit" class="button login-drawer__btn">{{ 'actions.log_in' | t }}</button>
-        {% endform %}
-        <div class="login-drawer__actions">
-          <div class="login-drawer__actions-group">
-            <p>{{ 'blocks.contact_form.not_a_member' | t }}</p>
-            <button type="button" class="login-drawer__actions-switch" data-target="register">
-              {{ 'actions.create_account' | t }}
-            </button>
-          </div>
-          <button type="button" class="login-drawer__actions-switch" data-target="reset">
-            {{ 'blocks.contact_form.forgot_password' | t }}
+          {{ 'actions.log_in_account' | t }}
+        </h3>
+        <input
+          type="email"
+          name="customer[email]"
+          class="input login-drawer__input"
+          placeholder="{{ 'blocks.contact_form.email' | t }}"
+          required
+        >
+        <input
+          type="password"
+          name="customer[password]"
+          class="input login-drawer__input"
+          placeholder="{{ 'blocks.contact_form.password' | t }}"
+          required
+        >
+        <button type="submit" class="button login-drawer__btn">{{ 'actions.log_in' | t }}</button>
+      {% endform %}
+      <div class="login-drawer__actions">
+        <div class="login-drawer__actions-group">
+          <p>{{ 'blocks.contact_form.not_a_member' | t }}</p>
+          <button type="button" class="login-drawer__actions-switch" data-target="register">
+            {{ 'actions.create_account' | t }}
           </button>
         </div>
+        <button type="button" class="login-drawer__actions-switch" data-target="reset">
+          {{ 'blocks.contact_form.forgot_password' | t }}
+        </button>
       </div>
+    </div>
 
-      <!-- REGISTER FORM -->
-      <div class="login-drawer__content login-drawer__register">
-        <h2 class="login-drawer__title">{{ 'actions.create_account' | t }}</h2>
+    <!-- REGISTER FORM -->
+    <div class="login-drawer__content login-drawer__register">
+      <h2 class="login-drawer__title">{{ 'actions.create_account' | t }}</h2>
 
-        {% form 'create_customer' %}
-          <h3 class="login-drawer__title">{{ 'actions.create_account' | t }}</h3>
-          <input
-            type="text"
-            name="customer[first_name]"
-            class="input login-drawer__input"
-            placeholder="{{ 'blocks.contact_form.first_name' | t }}"
-            required
-          >
-          <input
-            type="text"
-            name="customer[last_name]"
-            class="input login-drawer__input"
-            placeholder="{{ 'blocks.contact_form.last_name' | t }}"
-            required
-          >
-          <input
-            type="email"
-            name="customer[email]"
-            class="input login-drawer__input"
-            placeholder="{{ 'blocks.contact_form.email' | t }}"
-            required
-          >
-          <input
-            type="password"
-            name="customer[password]"
-            class="input login-drawer__input"
-            placeholder="{{ 'blocks.contact_form.password' | t }}"
-            required
-          >
-          <button type="submit" class="button login-drawer__btn">{{ 'actions.create' | t }}</button>
-        {% endform %}
-        <div class="login-drawer__actions">
-          <p>{{ 'blocks.contact_form.have_account' | t }}</p>
-          <button type="button" class="login-drawer__actions-switch" data-target="login">
-            {{ 'actions.enter' | t }}
-          </button>
-        </div>
+      {% form 'create_customer' %}
+        <h3 class="login-drawer__title">{{ 'actions.create_account' | t }}</h3>
+        <input
+          type="text"
+          name="customer[first_name]"
+          class="input login-drawer__input"
+          placeholder="{{ 'blocks.contact_form.first_name' | t }}"
+          required
+        >
+        <input
+          type="text"
+          name="customer[last_name]"
+          class="input login-drawer__input"
+          placeholder="{{ 'blocks.contact_form.last_name' | t }}"
+          required
+        >
+        <input
+          type="email"
+          name="customer[email]"
+          class="input login-drawer__input"
+          placeholder="{{ 'blocks.contact_form.email' | t }}"
+          required
+        >
+        <input
+          type="password"
+          name="customer[password]"
+          class="input login-drawer__input"
+          placeholder="{{ 'blocks.contact_form.password' | t }}"
+          required
+        >
+        <button type="submit" class="button login-drawer__btn">{{ 'actions.create' | t }}</button>
+      {% endform %}
+      <div class="login-drawer__actions">
+        <p>{{ 'blocks.contact_form.have_account' | t }}</p>
+        <button type="button" class="login-drawer__actions-switch" data-target="login">
+          {{ 'actions.enter' | t }}
+        </button>
       </div>
+    </div>
 
-      <!-- RESET FORM -->
-      <div class="login-drawer__content login-drawer__reset">
-        <h2 class="login-drawer__title">{{ 'actions.reset_password' | t }}</h2>
-        {% form 'recover_customer_password' %}
-          <h3 class="login-drawer__title">{{ 'blocks.contact_form.forgotten_password' | t }}</h3>
-          <p>{{ 'blocks.contact_form.reset_password_instructions' | t }}</p>
-          <input
-            type="email"
-            name="email"
-            class="input login-drawer__input"
-            placeholder="{{ 'blocks.contact_form.email' | t }}"
-            required
-          >
-          <button type="submit" class="button login-drawer__btn">{{ 'actions.reset_password' | t }}</button>
-        {% endform %}
-        <div class="login-drawer__actions">
-          <p>{{ 'blocks.contact_form.return_to' | t }}</p>
-          <button type="button" class="login-drawer__actions-switch" data-target="login">
-            {{ 'actions.enter' | t }}
-          </button>
-        </div>
+    <!-- RESET FORM -->
+    <div class="login-drawer__content login-drawer__reset">
+      <h2 class="login-drawer__title">{{ 'actions.reset_password' | t }}</h2>
+      {% form 'recover_customer_password' %}
+        <h3 class="login-drawer__title">{{ 'blocks.contact_form.forgotten_password' | t }}</h3>
+        <p>{{ 'blocks.contact_form.reset_password_instructions' | t }}</p>
+        <input
+          type="email"
+          name="email"
+          class="input login-drawer__input"
+          placeholder="{{ 'blocks.contact_form.email' | t }}"
+          required
+        >
+        <button type="submit" class="button login-drawer__btn">{{ 'actions.reset_password' | t }}</button>
+      {% endform %}
+      <div class="login-drawer__actions">
+        <p>{{ 'blocks.contact_form.return_to' | t }}</p>
+        <button type="button" class="login-drawer__actions-switch" data-target="login">
+          {{ 'actions.enter' | t }}
+        </button>
       </div>
-    </dialog>
-  {% endunless %}
+    </div>
+  </dialog>
 </dialog-component>
 
 {% stylesheet %}

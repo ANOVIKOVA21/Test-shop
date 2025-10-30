@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.login-drawer__content').forEach((form) => {
       form.classList.remove('is-active');
     });
-    document.querySelector(`.login-drawer__${formName}`).classList.add('is-active');
+    document
+      .querySelectorAll(`.login-drawer__${formName}`)
+      .forEach((form) => form.classList.add('is-active'));
   }
 });

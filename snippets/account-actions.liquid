@@ -1,86 +1,40 @@
 <div class="account-actions">
   <div class="account-actions__main-menu">
-    <header class="account-actions__header">
-      <span class="account-actions__title h5">
-        {% if customer and customer.first_name != blank %}
-          {{ 'content.account_title_personalized' | t: first_name: customer.first_name }}
-        {% else %}
-          {{ 'content.account_title' | t }}
-        {% endif %}
-      </span>
-      {% if customer %}
-        <span class="account-actions__email">
-          {% if customer.email %}
-            {{ customer.email }}
-          {% elsif customer.phone %}
-            {{ customer.phone }}
-          {% endif %}
-        </span>
-      {% endif %}
-    </header>
-
-    {% unless customer %}
-      <div
-        class="account-actions__sign-ins"
-        data-skip-subtree-update="true"
-      >
-        <script
-          src="{{ 'account-login-actions.js' | asset_url }}"
-          type="module"
-          fetchpriority="low"
-        ></script>
-        <account-login-actions class="account-actions__shop-login">
-          {{ shop | login_button }}
-        </account-login-actions>
-
-        <a
-          href="{% if request.design_mode %}{{ routes.account_url }}{% else %}{{ routes.storefront_login_url }}{% endif %}"
-          class="account-actions__link button"
-          {% if autofocus_enabled %}
-            autofocus
-          {% endif %}
-        >
-          <span class="account-actions__sign-in-text">
-            {{ 'actions.sign_in_options' | t }}
-          </span>
-          <span class="account-actions__fallback-text">
-            {{ 'actions.log_in' | t }}
-          </span>
-        </a>
-      </div>
-    {% endunless %}
-
     <nav class="account-actions__nav">
       <ul class="account-actions__list">
         <li class="account-actions__list-item">
           <a
-            href="{{ routes.account_url }}"
-            class="account-actions__link button-secondary"
+            href="{{ routes.account_addresses_url }}"
+            class="account-actions__link "
             {% if autofocus_enabled and customer %}
               autofocus
             {% endif %}
           >
-            <span
-              class="account-actions__icon"
-              aria-hidden="true"
-            >
-              {{- 'icon-orders.svg' | inline_asset_content -}}
-            </span>
+            {{ 'content.my_information' | t }}
+          </a>
+        </li>
+        <li class="account-actions__list-item">
+          <a
+            href="{{ routes.account_url }}"
+            class="account-actions__link"
+          >
             {{ 'content.account_orders' | t }}
           </a>
         </li>
         <li class="account-actions__list-item">
           <a
-            href="{{ routes.account_addresses_url }}"
-            class="account-actions__link button-secondary"
+            href="/#hero-wishlist"
+            class="account-actions__link"
           >
-            <span
-              class="account-actions__icon"
-              aria-hidden="true"
-            >
-              {{- 'icon-account.svg' | inline_asset_content -}}
-            </span>
-            {{ 'content.account_profile' | t }}
+            {{ 'content.account_wishlist' | t }}
+          </a>
+        </li>
+        <li class="account-actions__list-item">
+          <a
+            href="{{ routes.account_logout_url }}"
+            class="account-actions__link"
+          >
+            {{ 'actions.log_out' | t }}
           </a>
         </li>
       </ul>
@@ -101,78 +55,18 @@
     }
   }
 
-  .account-actions__header {
-    padding: var(--padding-xl);
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-2xs);
-  }
-
-  .account-actions__title {
-    /* Ideally we set the font-size here, but specificity issues make this necessary */
-    --font-h5--size: var(--font-size--lg);
-
-    margin: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-
-  .account-actions__email {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-2xs);
-    color: rgb(var(--color-foreground-rgb) / var(--opacity-60));
-    max-width: var(--account-actions-max-width);
-    word-break: break-all;
-  }
-
-  .account-actions__sign-ins {
-    padding: var(--padding-xl);
-    padding-block-start: 0;
-    padding-block-end: var(--padding-md);
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-sm);
-  }
-
-  .account-actions__sign-in-text {
-    display: inline;
-  }
-
-  .account-actions__fallback-text {
-    display: none;
-  }
-
-  .account-actions__sign-ins:not(:has(shop-login-button)) {
-    gap: 0;
-
-    .account-actions__sign-in-text {
-      display: none;
-    }
-
-    .account-actions__fallback-text {
-      display: block;
-    }
-  }
-
-  /* Makes the shop login button radius match the theme settings */
-  .account-actions__shop-login {
-    --buttons-radius: var(--style-border-radius-buttons-primary);
-  }
-
   .account-actions__nav {
-    padding: var(--padding-xl);
+    padding-bottom: var(--padding-xl);
     padding-block-start: 0;
   }
 
   .account-actions__list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: var(--gap-sm);
-    width: 100%;
+    width: fit-content;
     list-style: none;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
 
     @media screen and (max-width: 300px) {
@@ -181,18 +75,10 @@
   }
 
   .account-actions__link {
-    width: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--gap-2xs);
-  }
-
-  .account-actions__icon {
-    display: flex;
-    width: var(--icon-size-sm);
-    height: var(--icon-size-sm);
-    margin-block: -4px;
+    transition: 0.3s;
+    &:hover {
+      color: #a0a0a0;
+    }
   }
 
   /* This triggers iOS < 16.4. The outline bug is not recognized as a lack of @supports */
