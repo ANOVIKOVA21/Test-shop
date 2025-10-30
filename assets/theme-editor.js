@@ -157,16 +157,6 @@ if (window.Shopify?.designMode && !isIOS) {
         open: (el) => el.setAttribute('open', ''),
       },
       {
-        name: 'account-drawer',
-        selector: '.account-drawer',
-        matches(el) {
-          return !!el.closest(this.selector);
-        },
-        isOpen: (el) => el.getAttribute('open') != null,
-        // @ts-ignore
-        open: (el) => el.showDialog(),
-      },
-      {
         name: 'localization-dropdown',
         selector: 'dropdown-localization-component',
         matches(el) {

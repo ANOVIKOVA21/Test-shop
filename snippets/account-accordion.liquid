@@ -1,0 +1,31 @@
+{%- doc -%}
+  Renders the account drawer, which is used for mobile users.
+{%- enddoc -%}
+
+{% if customer %}
+  <accordion-custom>
+    <details class="account-accordion">
+      <summary class="account-accordion__summary">
+        <span class="menu-drawer__menu-item-text wrap-text">
+          {{ 'content.account_title' | t }}
+        </span>
+        <span class="svg-wrapper icon-caret">
+          {{- 'icon-caret.svg' | inline_asset_content -}}
+        </span>
+      </summary>
+
+      {% render 'account-actions', autofocus_enabled: true %}
+    </details>
+  </accordion-custom>
+{% else %}
+  {% render 'login-drawer' %}
+{% endif %}
+{% stylesheet %}
+  .account-accordion,
+  .account-button {
+    padding-inline: var(--drawer-padding);
+  }
+  .account-accordion .account-actions__list {
+    margin: 0;
+  }
+{% endstylesheet %}
