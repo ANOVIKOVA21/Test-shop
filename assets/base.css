@@ -4360,3 +4360,40 @@ text-component {
     font-size: max(1rem, 100%);
   }
 }
+
+.jdgm-rev-widg__title,
+.jdgm-widget-actions-wrapper .jdgm-write-rev-link {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.jdgm-rev-widg__header .jdgm-rev-widg__title {
+  text-align: left;
+  font-size: 1rem;
+}
+
+.jdgm-rev-widg__summary-inner .jdgm-rev-widg__summary-text {
+  display: none;
+}
+
+.jdgm-write-review-modal .jdgm-write-review-modal__container .jdgm-write-review-modal__content {
+  width: 50dvw;
+  height: 80dvh;
+  border-radius: 10px;
+  padding: 1rem;
+  clip-path: inset(0 round 10px);
+}
+
+.jdgm-write-review-modal__stars {
+  margin-bottom: 20px;
+}
+
+.jdgm-write-review-modal label .jdgm-write-review-modal__checkbox-custom::after {
+  left: 5px;
+  top: 0;
+}
+
+.jdgm-write-review-modal .jdgm-write-review-modal__page .jdgm-write-review-modal__form--thank-you {
+  justify-content: space-evenly;
+}
