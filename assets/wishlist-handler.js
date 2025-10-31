@@ -1,7 +1,7 @@
 export class WishlistHandler {
   constructor(wishlistBtn) {
     this.wishlistBtn = wishlistBtn;
-    this.loginDrawer = document.querySelector('.login-drawer');
+    this.loginDrawer = document.getElementById('login-drawer');
     this.init();
   }
 
@@ -25,6 +25,8 @@ export class WishlistHandler {
         () => (title.textContent = title.dataset.defaultText),
         { once: true }
       );
+    } else {
+      window.showMessage('wishlist');
     }
     return;
   }

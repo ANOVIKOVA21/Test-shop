@@ -1,0 +1,26 @@
+{%- doc -%}
+  Renders the success message.
+{%- enddoc -%}
+
+<p
+  class="success-message"
+  data-cart-message="{{ 'actions.added_to_cart' | t }}"
+  data-wishlist-message="{{ 'actions.added_to_wishlist' | t }}"
+></p>
+
+{% stylesheet %}
+  .success-message {
+    position: fixed;
+    top: 4.375rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #00e526;
+    transition: 0.3s;
+    visibility: hidden;
+    z-index: 5;
+  }
+  .wishlist-hero-add-prod-to-wishlist-notification {
+    display: none !important;
+  }
+{% endstylesheet %}

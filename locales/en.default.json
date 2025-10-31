@@ -63,6 +63,8 @@
     // Success message shown after adding item to cart
     "added": "Added",
     "adding": "Adding to your cart...",
+    "added_to_cart": "Added to your cart",
+    "added_to_wishlist": "Added to your wishlist",
     // Button to apply discount code to cart
     "apply": "Apply",
     "back": "Back",
