@@ -11,13 +11,9 @@
   type="module"
 ></script>
 
-<script
-  src="{{ 'wishlist-handler.js' | asset_url }}"
-  type="module"
-></script>
-
 <dialog-component
   class="login-drawer"
+  id="login-drawer"
   {{ block.shopify_attributes }}
 >
   {% render 'account-button', attributes: 'on:click="/showDialog"' %}

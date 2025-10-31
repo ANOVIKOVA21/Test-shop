@@ -18,7 +18,7 @@
     </details>
   </accordion-custom>
 {% else %}
-  {% render 'login-drawer' %}
+  <button class="header-drawer__sign-in account-button" type="button">{{ 'actions.log_in' | t }}</button>
 {% endif %}
 {% stylesheet %}
   .account-accordion,
@@ -28,4 +28,14 @@
   .account-accordion .account-actions__list {
     margin: 0;
   }
+  header-drawer .header-drawer__sign-in {
+    justify-content: start;
+  }
 {% endstylesheet %}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const signInBtn = document.querySelector('.header-drawer__sign-in');
+    const loginDrawer = document.getElementById('login-drawer');
+    signInBtn?.addEventListener('click', () => loginDrawer?.showDialog());
+  });
+</script>
