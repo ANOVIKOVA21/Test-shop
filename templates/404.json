@@ -12,32 +12,6 @@
     "main": {
       "type": "main-404",
       "blocks": {
-        "text_LKk7HM": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<p><strong>FOG ERROR</strong></p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-subheading--family)",
-            "font_size": "1.25rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "uppercase",
-            "wrap": "nowrap",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "text_GqmVFf": {
           "type": "text",
           "name": "t:names.text",
@@ -45,10 +19,10 @@
             "text": "<h1><strong>404</strong></h1>",
             "width": "100%",
             "max_width": "normal",
-            "alignment": "center",
+            "alignment": "left",
             "type_preset": "custom",
             "font": "var(--font-heading--family)",
-            "font_size": "11.5rem",
+            "font_size": "2.5rem",
             "line_height": "loose",
             "letter_spacing": "loose",
             "case": "none",
@@ -68,11 +42,11 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<h2>Page not found</h2>",
+            "text": "<p>The page you are searching for seems to be missing. If you still can’t find what you are searching for, please <a href=\"/pages/contact\" title=\"Contact\">contact us</a>.</p>",
             "width": "100%",
             "max_width": "normal",
-            "alignment": "center",
-            "type_preset": "h3",
+            "alignment": "left",
+            "type_preset": "rte",
             "font": "var(--font-primary--family)",
             "font_size": "",
             "line_height": "normal",
@@ -90,40 +64,14 @@
           },
           "blocks": {}
         },
-        "text_Ua9XAW": {
-          "type": "text",
-          "name": "t:names.text",
-          "settings": {
-            "text": "<p>I tried to catch some fog but I missed it</p>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "center",
-            "type_preset": "rte",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 16,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "button_PAQMwR": {
           "type": "button",
           "name": "t:names.button",
           "settings": {
-            "label": "Back to Home",
-            "link": "https://test-store438.myshopify.com/",
+            "label": "Continue Shopping",
+            "link": "shopify://collections/all",
             "open_in_new_tab": false,
-            "style_class": "button-secondary",
+            "style_class": "button",
             "width": "fit-content",
             "custom_width": 100,
             "width_mobile": "fit-content",
@@ -133,23 +81,21 @@
         }
       },
       "block_order": [
-        "text_LKk7HM",
         "text_GqmVFf",
         "text_37wCUa",
-        "text_Ua9XAW",
         "button_PAQMwR"
       ],
       "settings": {
         "content_direction": "column",
         "section_width": "page-width",
         "section_height": "",
-        "horizontal_alignment_flex_direction_column": "center",
+        "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 20,
-        "color_scheme": "scheme-2",
+        "gap": 16,
+        "color_scheme": "scheme-1",
         "background_image": "shopify://shop_images/fog-and-mist-roll-over-tall-evergreen-forest.jpg",
         "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-end": 100
       }
     }
   },
