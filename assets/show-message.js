@@ -1,6 +1,4 @@
 function showMessage(actionPlace) {
-  debugger;
-  console.log('message');
   const message = document.querySelector('.success-message');
   if (!message) return;
   const messageText = message.dataset[`${actionPlace}Message`];
