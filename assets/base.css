@@ -4373,7 +4373,7 @@ text-component {
   font-size: 1rem;
 }
 
-.jdgm-rev-widg__summary-inner .jdgm-rev-widg__summary-text {
+.jdgm-rev-widg__summary-text .jdgm-verified-checkmark {
   display: none;
 }
 

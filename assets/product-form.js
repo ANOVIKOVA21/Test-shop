@@ -257,6 +257,7 @@ class ProductFormComponent extends Component {
             setTimeout(() => {
               this.#clearLiveRegionText();
             }, 5000);
+            window.showMessage('cart');
           }
 
           this.dispatchEvent(
